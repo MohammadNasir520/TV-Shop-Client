@@ -3,20 +3,24 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Navbar = () => {
+
+
     const { user } = useContext(AuthContext)
     console.log(user)
     const navbarItems = <>
 
 
-        <li><Link>Blogs</Link></li>
+        <li><Link to='/home'>Home</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
         <li >
-            <Link>
-                Catagories
+            <Link to='categories'>
+                Categories
 
             </Link>
 
         </li>
         <li><Link to='/login'>Login</Link></li>
+        <li><Link to='/signup'>Signup</Link></li>
     </>
     return (
         <div className="navbar bg-blue-300  w-full">

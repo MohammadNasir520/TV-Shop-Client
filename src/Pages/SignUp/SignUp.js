@@ -14,7 +14,7 @@ const SignUp = () => {
             role,
             name,
             email,
-            password
+
         }
         createUserByEmailAndPss(email, password)
             .then(result => {
@@ -74,7 +74,7 @@ const SignUp = () => {
                             <select name='userType' className="select select-accent w-full max-w-xs">
                                 <option disabled>Please Choose Your account type</option>
                                 <option>Seller</option>
-                                <option selected >User</option>
+                                <option selected >Buyer</option>
                             </select>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
