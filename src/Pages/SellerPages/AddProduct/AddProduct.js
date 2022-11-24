@@ -15,16 +15,17 @@ const AddProduct = () => {
         const sellerName = user.displayName;
         const productName = event.target.ProductName.value;
         const productPrice = event.target.productPrice.value;
-
-        const productCondition = event.target.productCondition.value;
+        const productCategory = event.target.productCategory.value;
+        const Condition = event.target.productCondition.value;
         const mobileNumber = event.target.mobileNumber.value;
         const location = event.target.location.value;
         const description = event.target.description.value;
         const purchasingPrice = event.target.purchasingPrice.value;
         const purchasingYear = event.target.purchasingYear.value;
         const image = event.target.img.value;
+        console.log(Condition)
         const product = {
-            email, productName, productPrice, productCondition, mobileNumber, location, description, purchasingPrice, purchasingYear,
+            email, productName, productPrice, Condition, productCategory, mobileNumber, location, description, purchasingPrice, purchasingYear,
             image, todayTime, sellerName
         }
         console.log(product)
@@ -58,7 +59,7 @@ const AddProduct = () => {
                         <span className="label-text"> Select Product category</span>
 
                     </label>
-                    <select name='productCondition' className="select w-full">
+                    <select name='productCategory' className="select w-full">
                         <option disabled>Product category</option>
                         <option>Samsung TV</option>
                         <option >LG TV</option>
@@ -90,7 +91,7 @@ const AddProduct = () => {
                     </label>
                     <select name='productCondition' className="select w-full">
                         <option disabled>Product condition</option>
-                        <option>Excellent</option>
+                        <option selected>Excellent</option>
                         <option >Good</option>
                         <option >Normal</option>
                     </select>
