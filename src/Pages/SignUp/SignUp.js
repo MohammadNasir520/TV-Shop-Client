@@ -1,8 +1,9 @@
 import { type } from '@testing-library/user-event/dist/type';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
+    const [Buyer, setBuer] = useState(false)
     const { createUserByEmailAndPss } = useContext(AuthContext)
     const handleSignUp = event => {
         event.preventDefault()
@@ -16,6 +17,7 @@ const SignUp = () => {
             email,
 
         }
+
         createUserByEmailAndPss(email, password)
             .then(result => {
                 const user = result.user;
@@ -38,7 +40,11 @@ const SignUp = () => {
             })
         console.log(createdUser)
 
+
+
     }
+
+
     return (
         <form onSubmit={handleSignUp}>
             <div className="hero min-h-screen bg-base-200">
