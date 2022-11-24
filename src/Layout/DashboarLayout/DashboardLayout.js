@@ -40,7 +40,7 @@ const DashboardLayout = () => {
 
             <div className="drawer drawer-mobile">
                 <input id="drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content ">
                     {/* <!-- Page content here --> */}
                     <Outlet></Outlet>
                     <label htmlFor="drawer" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>

@@ -1,5 +1,6 @@
 import { data } from 'autoprefixer';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CategoryCard from './CategoryCard';
 
 const Catagories = () => {
@@ -7,12 +8,15 @@ const Catagories = () => {
     const [selectedCategory, setSelectedCategory] = useState('')
     console.log(selectedCategory)
 
+    const navigate = useNavigate()
+
     const handleSelectedCategory = category => {
         setSelectedCategory(category)
         fetch(`http://localhost:5000/category/${category.categoryName}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                navigate(`/dashboard/category/${category.categoryName}`)
             })
     }
 
