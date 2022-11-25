@@ -42,7 +42,7 @@ const Catagories = () => {
     return (
         <div >
             <h1>Category Items</h1>
-            <div className='grid lg:grid-cols-3 gap-3'>
+            <div className='grid lg:grid-cols-3 gap-3 '>
                 {
                     productsCategory.map(category => <CategoryCard
                         handleSelectedCategory={handleSelectedCategory}

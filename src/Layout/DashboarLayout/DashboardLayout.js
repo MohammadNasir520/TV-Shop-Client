@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import Footer from '../../Shared/Footer/Footer';
 import Navbar from '../../Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
@@ -8,7 +9,7 @@ const DashboardLayout = () => {
 
     const [isBuyer, setIsBuyer] = useState(false)
     const [isSeller, setIsSeller] = useState(false)
-    console.log(isBuyer)
+
 
     // load buyer
     useEffect(() => {
@@ -58,15 +59,17 @@ const DashboardLayout = () => {
                         }
                         {
                             isSeller && <>
-                                <li><Link to='/dashboard/addProduct'>Add a Product</Link></li>
-                                <li><Link>My Product</Link></li>
+                                <li><Link to='/dashboard/myProducts' >My Product</Link></li>
                                 <li><Link>My Buyers</Link></li>
+                                <li><Link to='/dashboard/addProduct'>Add a Product</Link></li>
                             </>
                         }
                     </ul>
 
                 </div>
+
             </div>
+
         </>
     );
 };

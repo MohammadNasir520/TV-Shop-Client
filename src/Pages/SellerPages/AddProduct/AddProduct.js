@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const AddProduct = () => {
@@ -7,6 +8,8 @@ const AddProduct = () => {
     const todayTime = time.toLocaleString();
     console.log(todayTime)
     console.log(time)
+    const navigate = useNavigate()
+
     const imageBbKey = process.env.REACT_APP_imagebb_key;
     const handleAddProduct = (event) => {
 
@@ -39,6 +42,7 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                navigate('/dashboard/myProducts')
             })
     }
     return (
@@ -46,9 +50,9 @@ const AddProduct = () => {
             <div className='grid lg:grid-cols-3 gap-4  p-10'>
 
 
-                <div className="form-control w-full ">
+                <div className="form-control w-full  ">
                     <label className="label">
-                        <span className="label-text">Product Name</span>
+                        <span className="label-text text-white">Television  Name</span>
 
                     </label>
                     <input required name='ProductName' type="text" placeholder="Type here" className="input  w-full " />
@@ -56,11 +60,11 @@ const AddProduct = () => {
                 </div>
                 <div className='form-control w-full'>
                     <label className="label">
-                        <span className="label-text"> Select Product category</span>
+                        <span className="label-text text-white"> Select Tv category</span>
 
                     </label>
                     <select name='productCategory' className="select w-full">
-                        <option disabled>Product category</option>
+                        <option disabled>Tv category</option>
                         <option>Samsung TV</option>
                         <option >LG TV</option>
                         <option >Sony TV</option>
@@ -69,7 +73,7 @@ const AddProduct = () => {
 
                 <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text">Product image link</span>
+                        <span className="label-text text-white">TV image link</span>
 
                     </label>
                     <input required name='img' type="text" placeholder="Type here" className="input  w-full " />
@@ -77,7 +81,7 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text">Product Price</span>
+                        <span className="label-text text-white">Resale Price</span>
 
                     </label>
                     <input required name='productPrice' type="text" placeholder="Type here" className="input w-full " />
@@ -86,11 +90,11 @@ const AddProduct = () => {
 
                 <div className='form-control w-full'>
                     <label className="label">
-                        <span className="label-text"> Select Product Condition</span>
+                        <span className="label-text text-white"> Select TV Condition</span>
 
                     </label>
                     <select name='productCondition' className="select w-full">
-                        <option disabled>Product condition</option>
+                        <option disabled>TV condition</option>
                         <option selected>Excellent</option>
                         <option >Good</option>
                         <option >Normal</option>
@@ -100,7 +104,7 @@ const AddProduct = () => {
 
                 <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text">Mobile Number</span>
+                        <span className="label-text text-white">Mobile Number</span>
 
                     </label>
                     <input required name='mobileNumber' type="text" placeholder="Type here" className="input w-full " />
@@ -108,7 +112,7 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text">Location</span>
+                        <span className="label-text text-white">Location</span>
 
                     </label>
                     <input required name='location' type="text" placeholder="Type here" className="input w-full " />
@@ -116,7 +120,7 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text"> description</span>
+                        <span className="label-text text-white"> description</span>
 
                     </label>
                     <input required name='description' type="text" placeholder="Type here" className="input w-full " />
@@ -124,7 +128,7 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text">Purchasing Price</span>
+                        <span className="label-text text-white">Purchasing Price</span>
 
                     </label>
                     <input required name='purchasingPrice' type="text" placeholder="Type here" className="input w-full " />
@@ -132,7 +136,7 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text">Purchasing Year</span>
+                        <span className="label-text text-white">Purchasing Year</span>
 
                     </label>
                     <input required name='purchasingYear' type="text" placeholder="Type here" className="input w-full " />
@@ -140,7 +144,7 @@ const AddProduct = () => {
                 </div>
             </div>
             <div className='w-1/2 mx-auto '>
-                <input required type="submit" value="Add a product" className='btn w-full  mx-auto ' />
+                <input required type="submit" value="Add a Television" className='btn w-full  mx-auto ' />
             </div>
 
         </form>

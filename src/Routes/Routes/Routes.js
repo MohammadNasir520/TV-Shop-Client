@@ -5,6 +5,7 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Products from "../../Pages/Products/Products";
 import AddProduct from "../../Pages/SellerPages/AddProduct/AddProduct";
+import MyProducts from "../../Pages/SellerPages/MyProducts/MyProducts";
 import SignUp from "../../Pages/SignUp/SignUp";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -39,7 +40,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <MyProducts></MyProducts>
             },
             {
                 path: '/dashboard/addProduct',
@@ -49,6 +50,11 @@ export const router = createBrowserRouter([
                 path: '/dashboard/category/:categoryName',
                 loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
                 element: <Products></Products>
+            },
+            {
+                path: '/dashboard/myProducts',
+                // loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
+                element: <MyProducts></MyProducts>
             },
         ]
     }
