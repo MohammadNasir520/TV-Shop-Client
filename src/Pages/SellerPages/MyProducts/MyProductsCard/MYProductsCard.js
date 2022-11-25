@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const MYProductsCard = ({ product, setRefresh, refresh }) => {
     const { _id, image, productName, Condition, description, productPrice, sellerName, location, purchasingPrice, todayTime, } = product;
 
-
+    // seller product delete functionaliy
     const handleDeletProduct = (id) => {
         console.log('delete', id)
         fetch(`http://localhost:5000/products/${id}`, {
@@ -18,6 +18,25 @@ const MYProductsCard = ({ product, setRefresh, refresh }) => {
                 }
             })
 
+    }
+
+    // seller product advertise items
+    const handleAdvertiseProducts = id => {
+        console.log('advertised', id)
+        fetch(`http://localhost:5000/productss/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+
+                }
+            })
     }
 
     return (
@@ -45,7 +64,7 @@ const MYProductsCard = ({ product, setRefresh, refresh }) => {
                         <div className='flex gap-3'>
 
                             <div onClick={() => handleDeletProduct(_id)} className=" cursor-pointer border  rounded-lg pl-2 py-1 w-1/2  text-center bg-gradient-to-r from-primary to-secondary text-black ">Delete Product</div>
-                            <div className=" border cursor-pointer rounded-lg pl-2 py-1 w-1/2  text-center bg-gradient-to-r from-primary to-secondary text-black ">Advertise</div>
+                            <div onClick={() => handleAdvertiseProducts(_id)} className=" border cursor-pointer rounded-lg pl-2 py-1 w-1/2  text-center bg-gradient-to-r from-primary to-secondary text-black ">Advertise</div>
                         </div>
 
 
