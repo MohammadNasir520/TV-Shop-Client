@@ -63,7 +63,12 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allSeller',
                 element: <Allseller></Allseller>
-            }
+            },
+
+            {
+                path: '/dashboard/allBuyer',
+                element: <AllBuyers></AllBuyers>
+            },
         ]
     }
 ])

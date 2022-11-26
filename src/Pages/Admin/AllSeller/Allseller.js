@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 import SellerBuyerTable from '../SellerBuyerTAble/SellerBuyerTable';
 import SellerTable from './SellerTable';
@@ -5,6 +6,8 @@ import SellerTable from './SellerTable';
 const Allseller = () => {
     const [allseller, setAlseller] = useState([]);
 
+    const [refresh, setRefresh] = useState(false);
+    // load all sellers
     useEffect(() => {
         fetch('http://localhost:5000/users/seller')
             .then(res => res.json())
@@ -12,7 +15,22 @@ const Allseller = () => {
                 console.log(data)
                 setAlseller(data)
             })
-    }, [])
+    }, [refresh])
+
+    // delete sellers by id
+    const handleDeleteSeller = (id) => {
+        console.log(id, 'delete')
+        fetch(`http://localhost:5000/users/seller/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount) {
+                    setRefresh(!refresh)
+                }
+            })
+    }
     return (
         <div>
             <div>
@@ -55,14 +73,14 @@ const Allseller = () => {
 
                         <div className='grid lg:grid-cols-3 md:grid-cols-2  gap-4 p-4'>
                             {
-                                allseller?.map((seller, index) => <div className="card text-neutral-content bg-gradient-to-r from-[#164e63] to-[#0c4a6e] text-slate-50 font-medium ">
+                                allseller?.map((seller, index) => <div className="card text-white bg-gradient-to-r from-[#164e63] to-[#0c4a6e] text-slate-50 font-medium ">
                                     <div className="card-body items-center text-center">
                                         <div className="badge ">{index + 1}</div>
-                                        <h2 className="card-title">Name:{seller.name}</h2>
-                                        <p>Email:{seller.email}</p>
+                                        <h2 className="card-title">Name: {seller.name}</h2>
+                                        <p>Email: {seller.email}</p>
                                         <div className="card-actions justify-end">
                                             <button className="btn glass btn-sm">verify</button>
-                                            <button className="btn btn-outline btn-error btn-sm">Delete</button>
+                                            <button onClick={() => handleDeleteSeller(seller._id)} className="btn btn-outline btn-error btn-sm">Delete</button>
                                         </div>
                                     </div>
                                 </div>)

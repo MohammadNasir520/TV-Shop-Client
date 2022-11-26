@@ -80,7 +80,7 @@ const DashboardLayout = () => {
                         {
                             isAdmin && <>
                                 <li><Link to='/dashboard/allSeller' >All Sellers</Link></li>
-                                <li><Link> All Buyers</Link></li>
+                                <li><Link to='/dashboard/allBuyer'> All Buyers</Link></li>
                                 <li><Link to='/dashboard/addProduct'>Reported Items</Link></li>
                             </>
                         }
