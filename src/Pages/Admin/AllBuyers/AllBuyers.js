@@ -1,8 +1,11 @@
+import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const AllBuyers = () => {
     const [allBuyer, setAllBuyer] = useState([]);
 
+    // load al buyers
     useEffect(() => {
         fetch('http://localhost:5000/users/Buyer')
             .then(res => res.json())
@@ -11,6 +14,23 @@ const AllBuyers = () => {
                 setAllBuyer(data)
             })
     }, [])
+    // delete buyers by id
+
+
+
+    const handleDeletebuyerbyId = Buyer => {
+        console.log('dlete buyer', Buyer)
+        fetch(`http://localhost:5000/users/buyer/${Buyer._id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount) {
+                    toast.success(`${Buyer.name} deleted success fully`)
+                }
+            })
+    }
     return (
         <div>
             <div>
@@ -58,7 +78,7 @@ const AllBuyers = () => {
                                         <div className="badge ">{index + 1}</div>
                                         <h2 className="card-title">Name: {buyer.name}</h2>
                                         <p>Email: {buyer.email}</p>
-                                        <button className="btn btn-outline btn-error btn-sm">Delete Seller</button>
+                                        <button onClick={() => handleDeletebuyerbyId(buyer)} className="btn btn-outline btn-error btn-sm">Delete Seller</button>
 
                                     </div>
                                 </div>)

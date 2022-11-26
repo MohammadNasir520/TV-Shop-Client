@@ -1,5 +1,6 @@
 import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import SellerBuyerTable from '../SellerBuyerTAble/SellerBuyerTable';
 import SellerTable from './SellerTable';
 
@@ -18,9 +19,9 @@ const Allseller = () => {
     }, [refresh])
 
     // delete sellers by id
-    const handleDeleteSeller = (id) => {
-        console.log(id, 'delete')
-        fetch(`http://localhost:5000/users/seller/${id}`, {
+    const handleDeleteSeller = (seller) => {
+        console.log(seller, 'delete')
+        fetch(`http://localhost:5000/users/seller/${seller._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -28,6 +29,7 @@ const Allseller = () => {
                 console.log(data)
                 if (data.deletedCount) {
                     setRefresh(!refresh)
+                    toast.success(`${seller.name} Deleted Successfully`)
                 }
             })
     }
@@ -80,7 +82,7 @@ const Allseller = () => {
                                         <p>Email: {seller.email}</p>
                                         <div className="card-actions justify-end">
                                             <button className="btn glass btn-sm">verify</button>
-                                            <button onClick={() => handleDeleteSeller(seller._id)} className="btn btn-outline btn-error btn-sm">Delete</button>
+                                            <button onClick={() => handleDeleteSeller(seller)} className="btn btn-outline btn-error btn-sm">Delete</button>
                                         </div>
                                     </div>
                                 </div>)
