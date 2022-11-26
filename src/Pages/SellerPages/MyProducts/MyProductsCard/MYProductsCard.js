@@ -1,5 +1,6 @@
 import { data } from 'autoprefixer';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const MYProductsCard = ({ product, setRefresh, refresh }) => {
     const { _id, image, productName, Condition, description, productPrice, sellerName, location, purchasingPrice, todayTime, } = product;
@@ -15,6 +16,7 @@ const MYProductsCard = ({ product, setRefresh, refresh }) => {
                 console.log(data)
                 if (data.acknowledged) {
                     setRefresh(!refresh)
+                    toast.error('product delete successfully')
                 }
             })
 

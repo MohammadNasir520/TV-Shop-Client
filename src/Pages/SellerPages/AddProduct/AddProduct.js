@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const AddProduct = () => {
@@ -10,7 +11,8 @@ const AddProduct = () => {
     console.log(time)
     const navigate = useNavigate()
 
-    const imageBbKey = process.env.REACT_APP_imagebb_key;
+    // const imageBbKey = process.env.REACT_APP_imagebb_key;
+    //collecting data from form 
     const handleAddProduct = (event) => {
 
         event.preventDefault()
@@ -32,6 +34,8 @@ const AddProduct = () => {
             image, todayTime, sellerName
         }
         console.log(product)
+
+        // add product by post method
         fetch('http://localhost:5000/products', {
             method: 'POST',
             headers: {
@@ -42,6 +46,7 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                toast.success('product added successfully')
                 navigate('/dashboard/myProducts')
             })
     }

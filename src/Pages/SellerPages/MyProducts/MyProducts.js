@@ -20,6 +20,7 @@ const MyProducts = () => {
     // console.log(data)
     const [refresh, setRefresh] = useState(false)
 
+    // load product according to seller by email
     const [myProducts, seMyProduct] = useState([])
     useEffect(() => {
         fetch(`http://localhost:5000/product/${user?.email}`)

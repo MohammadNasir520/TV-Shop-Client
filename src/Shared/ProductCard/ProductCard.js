@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from '../../Components/Modal';
 
 const ProductCard = ({ product }) => {
     const { image, productName, Condition, description, productPrice, sellerName, location, purchasingPrice, todayTime, } = product;
@@ -22,9 +23,14 @@ const ProductCard = ({ product }) => {
                         {/* <div className="badge badge-outline">Fashion</div>
                         <div className="badge badge-outline">Products</div> */}
                     </div>
-                    <div className=" border  rounded-lg pl-2 py-1 w-1/2 mx-auto text-center bg-gradient-to-r from-primary to-secondary text-black ">Book Now</div>
+
+                    <label htmlFor="BookNowModal" className=" border  rounded-lg pl-2 py-1 w-1/2 mx-auto text-center bg-gradient-to-r from-primary to-secondary text-black ">Book Now</label>
                 </div>
             </div>
+            <Modal></Modal>
+
+
+
         </div>
     );
 };
