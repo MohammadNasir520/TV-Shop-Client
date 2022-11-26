@@ -16,7 +16,7 @@ const Catagories = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                navigate(`/dashboard/category/${category.categoryName}`)
+                navigate(`/category/${category.categoryName}`)
             })
     }
 
@@ -41,7 +41,7 @@ const Catagories = () => {
     ]
     return (
         <div >
-            <h1>Category Items</h1>
+            <h1 className='text-center text-white text-3xl my-4'>Category</h1>
             <div className='grid lg:grid-cols-3 gap-3 '>
                 {
                     productsCategory.map(category => <CategoryCard

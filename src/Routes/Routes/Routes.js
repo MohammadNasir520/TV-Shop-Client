@@ -32,6 +32,11 @@ export const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp />
             },
+            {
+                path: '/category/:categoryName',
+                loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
+                element: <Products></Products>
+            },
         ]
     },
     {
@@ -46,11 +51,7 @@ export const router = createBrowserRouter([
                 path: '/dashboard/addProduct',
                 element: <AddProduct></AddProduct>
             },
-            {
-                path: '/dashboard/category/:categoryName',
-                loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
-                element: <Products></Products>
-            },
+
             {
                 path: '/dashboard/myProducts',
                 // loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
