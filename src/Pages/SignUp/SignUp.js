@@ -1,11 +1,12 @@
 import { type } from '@testing-library/user-event/dist/type';
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
     const [Buyer, setBuer] = useState(false)
     const { createUserByEmailAndPss } = useContext(AuthContext)
+    const navigate = useNavigate();
     const handleSignUp = event => {
         event.preventDefault()
         const role = event.target.userType.value;
@@ -34,6 +35,7 @@ const SignUp = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
+                        navigate('/')
                     })
             })
             .catch(error => {
@@ -61,7 +63,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Name" className="input input-bordered" />
+                                <input required type="text" name='name' placeholder="Name" className="input input-bordered" />
 
                             </div>
                             <div className="form-control">

@@ -9,8 +9,9 @@ const DashboardLayout = () => {
 
     const [isBuyer, setIsBuyer] = useState(false)
     const [isSeller, setIsSeller] = useState(false)
+    const [isAdmin, seIstAdmin] = useState(false)
 
-
+    console.log(isAdmin)
     // load buyer
     useEffect(() => {
         if (user?.email) {
@@ -31,6 +32,18 @@ const DashboardLayout = () => {
                 .then(data => {
 
                     setIsSeller(data.Seller)
+                })
+        }
+    }, [user?.email])
+
+    //loading admin 
+    useEffect(() => {
+        if (user?.email) {
+            fetch(`http://localhost:5000/users/Admin/${user?.email}`)
+                .then(res => res.json())
+                .then(data => {
+
+                    seIstAdmin(data.Admin)
                 })
         }
     }, [user?.email])
@@ -62,6 +75,13 @@ const DashboardLayout = () => {
                                 <li><Link to='/dashboard/myProducts' >My Product</Link></li>
                                 <li><Link>My Buyers</Link></li>
                                 <li><Link to='/dashboard/addProduct'>Add a Product</Link></li>
+                            </>
+                        }
+                        {
+                            isAdmin && <>
+                                <li><Link to='/dashboard/allSeller' >All Sellers</Link></li>
+                                <li><Link> All Buyers</Link></li>
+                                <li><Link to='/dashboard/addProduct'>Reported Items</Link></li>
                             </>
                         }
                     </ul>

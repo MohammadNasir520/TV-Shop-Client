@@ -1,5 +1,7 @@
 import { async } from "@firebase/util";
 import DashboardLayout from "../../Layout/DashboarLayout/DashboardLayout";
+import AllBuyers from "../../Pages/Admin/AllBuyers/AllBuyers";
+import Allseller from "../../Pages/Admin/AllSeller/Allseller";
 import Dashboard from "../../Pages/DashBoard/Dashboard";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -58,6 +60,10 @@ export const router = createBrowserRouter([
                 // loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
                 element: <MyProducts></MyProducts>
             },
+            {
+                path: '/dashboard/allSeller',
+                element: <Allseller></Allseller>
+            }
         ]
     }
 ])
