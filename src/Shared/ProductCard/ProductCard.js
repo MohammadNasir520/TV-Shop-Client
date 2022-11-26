@@ -27,7 +27,9 @@ const ProductCard = ({ product }) => {
                     <label htmlFor="BookNowModal" className=" border  rounded-lg pl-2 py-1 w-1/2 mx-auto text-center bg-gradient-to-r from-primary to-secondary text-black ">Book Now</label>
                 </div>
             </div>
-            <Modal></Modal>
+            <Modal
+                product={product}
+            ></Modal>
 
 
 
