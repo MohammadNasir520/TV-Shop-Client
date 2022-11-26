@@ -7,6 +7,7 @@ import Products from "../../Pages/Products/Products";
 import AddProduct from "../../Pages/SellerPages/AddProduct/AddProduct";
 import MyProducts from "../../Pages/SellerPages/MyProducts/MyProducts";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layout/Main");
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
             {
                 path: '/category/:categoryName',
                 loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
-                element: <Products></Products>
+                element: <PrivateRoute><Products></Products></PrivateRoute>
             },
         ]
     },

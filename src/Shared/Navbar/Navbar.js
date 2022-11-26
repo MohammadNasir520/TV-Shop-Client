@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { data } from 'autoprefixer';
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Navbar = () => {
@@ -18,10 +18,17 @@ const Navbar = () => {
     //         return data;
     //     }
     // })
-
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         logout()
+            .then(() => {
+                navigate('/login')
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
 

@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
     const { user, loginByEmailAndPassWord } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
     const handleLogin = (event) => {
         event.preventDefault()
         const email = event.target.email.value
@@ -13,6 +16,7 @@ const Login = () => {
         loginByEmailAndPassWord(email, password)
             .then(result => {
                 const user = result.user;
+                navigate('/')
                 console.log(user)
             })
             .catch(err => {
@@ -52,7 +56,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                            <p>Don't have an account?<Link href="#" className="label-text-alt link link-hover">  Please SignUp </Link></p>
+                            <p>Don't have an account?<Link to='/signup' className="label-text-alt text-sky-700 link link-hover ">Please  SignUp  Here</Link></p>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import { type } from '@testing-library/user-event/dist/type';
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
@@ -91,6 +92,7 @@ const SignUp = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">SignUP</button>
                             </div>
+                            <p>Already  have an account?<Link to='/login' className="label-text-alt text-sky-700 link link-hover ">Please  Login  Here</Link></p>
                         </div>
                     </div>
                 </div>
