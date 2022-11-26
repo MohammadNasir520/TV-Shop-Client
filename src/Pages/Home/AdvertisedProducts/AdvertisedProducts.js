@@ -1,6 +1,6 @@
 import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
-import ProductCard from '../../Products/ProductCard';
+import ProductCard from '../../../Shared/ProductCard/ProductCard';
 const AdvertisedProducts = () => {
     const [advertisedProducts, setAdverTisedProducts] = useState([]);
     console.log(advertisedProducts)

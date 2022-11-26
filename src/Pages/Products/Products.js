@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import ProductCard from './ProductCard';
+import ProductCard from '../../Shared/ProductCard/ProductCard';
 
 const Products = () => {
     const products = useLoaderData()
