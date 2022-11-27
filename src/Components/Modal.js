@@ -1,9 +1,47 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Modal = ({ product, setProduct }) => {
-    console.log(product?.productName)
+
+    console.log(product)
     const { user } = useContext(AuthContext)
+
+    const handleBookingModal = event => {
+        event.preventDefault()
+        const form = event.target;
+        const buyerName = form.name.value;
+        const phone = form.phone.value;
+        const meetlocation = form.location.value;
+        const email = user.email;
+        const productId = product._id
+        const condition = product.condition;
+        const description = product.description;
+        const image = product.image;
+        const location = product.location;
+        const bookedProduct = {
+            buyerName, phone, location, email, productId, meetlocation, condition, description, image,
+        }
+        fetch('http://localhost:5000/bookedProduct', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookedProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    setProduct(null)
+                    toast.success(`${product.productName} booked successfully`)
+                }
+            })
+        console.log(bookedProduct)
+        // const productName = form.product.value;
+        // const productPrice = form.productPrice.value;
+        // const buyerName = form.name.value;
+    }
 
     return (
         <div>
@@ -12,7 +50,7 @@ const Modal = ({ product, setProduct }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label onClick={() => setProduct(null)} htmlFor="BookNowModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <form>
+                    <form onSubmit={handleBookingModal}>
 
 
 
@@ -54,9 +92,9 @@ const Modal = ({ product, setProduct }) => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text px-2"> Your Location</span>
+                                        <span className="label-text px-2"> Meet Location</span>
                                     </label>
-                                    <input type="text" name='phone' placeholder="Please Enter Your Location " required className="border px-4 py-1" />
+                                    <input type="text" name='location' placeholder="Please Enter meet Location " required className="border px-4 py-1" />
                                 </div>
 
 

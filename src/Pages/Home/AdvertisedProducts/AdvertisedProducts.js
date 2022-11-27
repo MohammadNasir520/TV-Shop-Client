@@ -28,10 +28,12 @@ const AdvertisedProducts = () => {
                     </div>
                 </>
             }
-            <Modal
-                product={product}
-                setProduct={setProduct}
-            ></Modal>
+            {
+                product && <Modal
+                    product={product}
+                    setProduct={setProduct}
+                ></Modal>
+            }
         </div>
     );
 };
