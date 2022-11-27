@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Modal from '../../Components/Modal';
 import { AuthContext } from '../../Context/AuthProvider';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
 
@@ -20,6 +21,9 @@ const Products = () => {
                     ></ProductCard>)
                 }
             </div>
+            <Modal
+            // product={product}
+            ></Modal>
         </div>
 
     );
