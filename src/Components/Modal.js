@@ -15,12 +15,21 @@ const Modal = ({ product, setProduct }) => {
         const meetlocation = form.location.value;
         const email = user.email;
         const productId = product._id
-        const condition = product.condition;
+        const Condition = product.Condition;
         const description = product.description;
         const image = product.image;
         const location = product.location;
+        const productCategory = product.productCategory;
+        const productName = product.productName;
+        const productPrice = product.productPrice;
+        const purchasingPrice = product.purchasingPrice;
+        const purchasingYear = product.purchasingPrice;
+        const sellerName = product.sellerName;
+        const todayTime = product.todayTime;
         const bookedProduct = {
-            buyerName, phone, location, email, productId, meetlocation, condition, description, image,
+            buyerName, phone, location, email, productId, meetlocation, Condition, description, image,
+            productCategory, productName, productPrice, purchasingPrice, purchasingYear, sellerName
+            , todayTime
         }
         fetch('http://localhost:5000/bookedProduct', {
             method: 'POST',

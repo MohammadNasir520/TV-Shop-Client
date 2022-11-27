@@ -8,6 +8,7 @@ const DashboardLayout = () => {
     const { user } = useContext(AuthContext)
 
     const [isBuyer, setIsBuyer] = useState(false)
+    console.log(isBuyer)
     const [isSeller, setIsSeller] = useState(false)
     const [isAdmin, seIstAdmin] = useState(false)
 
@@ -18,7 +19,7 @@ const DashboardLayout = () => {
             fetch(`http://localhost:5000/users/Buyer/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
-
+                    console.log(data)
                     setIsBuyer(data.Buyer)
                 })
         }
@@ -66,7 +67,7 @@ const DashboardLayout = () => {
                         {/* <!-- Sidebar content here --> */}
                         {
                             isBuyer && <>
-                                <li><Link>My Orders</Link></li>
+                                <li><Link to='/dashboard/myorders'>My Orders</Link></li>
                                 <li><Link>My Wish List</Link></li>
                             </>
                         }

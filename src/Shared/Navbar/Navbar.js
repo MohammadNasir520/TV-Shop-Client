@@ -71,7 +71,7 @@ const Navbar = () => {
                         {navbarItems}
                     </ul>
                 </div>
-                <NavLink className="btn btn-ghost normal-case text-xl">Sell Your TV</NavLink>
+                <NavLink className="btn btn-ghost normal-case text-xl">TV Shop</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

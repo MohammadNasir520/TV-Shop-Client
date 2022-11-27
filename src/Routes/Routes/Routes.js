@@ -2,6 +2,7 @@ import { async } from "@firebase/util";
 import DashboardLayout from "../../Layout/DashboarLayout/DashboardLayout";
 import AllBuyers from "../../Pages/Admin/AllBuyers/AllBuyers";
 import Allseller from "../../Pages/Admin/AllSeller/Allseller";
+import MyOrders from "../../Pages/BuyerPage/MyOrders/MyOrders";
 import Dashboard from "../../Pages/DashBoard/Dashboard";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allBuyer',
                 element: <AllBuyers></AllBuyers>
+            },
+            {
+                path: '/dashboard/myorders',
+                element: <MyOrders></MyOrders>
             },
         ]
     }
