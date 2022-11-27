@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from '../../Components/Modal';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setProduct }) => {
+
     const { image, productName, Condition, description, productPrice, sellerName, location, purchasingPrice, todayTime, } = product;
+
     return (
         <div className='md:w-full lg:w-[420px]'>
             <div className={`card  bg-base-100 shadow-xl bg-gradient-to-r from-[#164e63] to-[#0c4a6e] text-slate-50 font-medium`}>
@@ -24,7 +26,11 @@ const ProductCard = ({ product }) => {
                         <div className="badge badge-outline">Products</div> */}
                     </div>
 
-                    <label htmlFor="BookNowModal" className=" border  rounded-lg pl-2 py-1 w-1/2 mx-auto text-center bg-gradient-to-r from-primary to-secondary text-black ">Book Now</label>
+                    <label
+                        onClick={() => setProduct(product)}
+                        htmlFor="BookNowModal"
+                        className=" border  rounded-lg pl-2 py-1 w-1/2 mx-auto text-center bg-gradient-to-r from-primary to-secondary text-black ">Book Now
+                    </label>
                 </div>
             </div>
 

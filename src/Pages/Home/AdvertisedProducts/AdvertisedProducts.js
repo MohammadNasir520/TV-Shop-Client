@@ -1,5 +1,6 @@
 import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
+import Modal from '../../../Components/Modal';
 import ProductCard from '../../../Shared/ProductCard/ProductCard';
 const AdvertisedProducts = () => {
     const [advertisedProducts, setAdverTisedProducts] = useState([]);
@@ -25,6 +26,7 @@ const AdvertisedProducts = () => {
                     </div>
                 </>
             }
+            <Modal></Modal>
         </div>
     );
 };
