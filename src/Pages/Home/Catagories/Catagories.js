@@ -40,7 +40,7 @@ const Catagories = () => {
         },
     ]
     return (
-        <div >
+        <div className='w-full' >
             <h1 className='text-center text-white text-3xl my-4'>Category</h1>
             <div className='grid lg:grid-cols-3 gap-3 '>
                 {

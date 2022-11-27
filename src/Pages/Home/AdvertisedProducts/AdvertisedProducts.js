@@ -4,6 +4,7 @@ import Modal from '../../../Components/Modal';
 import ProductCard from '../../../Shared/ProductCard/ProductCard';
 const AdvertisedProducts = () => {
     const [advertisedProducts, setAdverTisedProducts] = useState([]);
+    const [product, setProduct] = useState(null)
     console.log(advertisedProducts)
     useEffect(() => {
         fetch(`http://localhost:5000/products/advertised`)
@@ -21,12 +22,16 @@ const AdvertisedProducts = () => {
                         {
                             advertisedProducts?.map(advertisedProduct => <ProductCard
                                 product={advertisedProduct}
+                                setProduct={setProduct}
                             ></ProductCard>)
                         }
                     </div>
                 </>
             }
-            <Modal></Modal>
+            <Modal
+                product={product}
+                setProduct={setProduct}
+            ></Modal>
         </div>
     );
 };

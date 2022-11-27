@@ -23,7 +23,7 @@ const Products = () => {
             </div>
             {product &&
                 <Modal
-                    productName={product.name}
+
                     product={product}
                     setProduct={setProduct}
                 ></Modal>
