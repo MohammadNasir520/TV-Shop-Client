@@ -7,6 +7,8 @@ import AllBuyers from "../../Pages/Admin/AllBuyers/AllBuyers";
 import Allseller from "../../Pages/Admin/AllSeller/Allseller";
 import MyOrders from "../../Pages/BuyerPage/MyOrders/MyOrders";
 import Dashboard from "../../Pages/DashBoard/Dashboard";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
+import Faq from "../../Pages/Faq/Faq";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Products from "../../Pages/Products/Products";
@@ -23,6 +25,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -41,6 +44,10 @@ export const router = createBrowserRouter([
                 element: <SignUp />
             },
             {
+                path: '/blogs',
+                element: <Faq></Faq>
+            },
+            {
                 path: '/category/:categoryName',
                 loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
                 element: <PrivateRoute><Products></Products></PrivateRoute>
@@ -50,6 +57,7 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <DashboardLayout></DashboardLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             // {
             //     path: '/dashboard',
@@ -78,11 +86,16 @@ export const router = createBrowserRouter([
                 path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
             },
+            {
+                path: '/dashboard/myorders',
+                element: <MyOrders></MyOrders>
+            },
         ]
     },
     {
         path: '/buyerDashboard',
         element: <BuyerLayout></BuyerLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/buyerDashboard",
@@ -111,6 +124,7 @@ export const router = createBrowserRouter([
     {
         path: '/AdminDashboard',
         element: <AdminLout></AdminLout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/AdminDashboard',

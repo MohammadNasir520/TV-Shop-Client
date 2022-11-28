@@ -23,9 +23,11 @@ const Navbar = () => {
     // })
 
     const [isBuyer, setIsBuyer] = useState(false)
-    console.log(isBuyer)
+    console.log("buyer", isBuyer)
     const [isSeller, setIsSeller] = useState(false)
+    console.log('seller', isSeller)
     const [isAdmin, seIstAdmin] = useState(false)
+    console.log('isadmin', isAdmin)
 
     // load buyer
     useEffect(() => {

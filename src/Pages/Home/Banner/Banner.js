@@ -12,7 +12,7 @@ const Banner = () => {
                 <h1 className='text-2xl text-center mb-3 text-white'> Our Features</h1>
                 <div className="container mx-auto">
                     <div className="flex flex-wrap items-center">
-                        <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-78">
+                        <div className="w-full md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-78 ">
                             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-500">
                                 <img alt="..." src="https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/Articles/how-to-pack-a-tv-for-moving-step-7.jpg" className="w-full align-middle rounded-t-lg" />
                                 <blockquote className="relative p-8 mb-4">
