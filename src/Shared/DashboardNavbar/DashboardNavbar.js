@@ -43,10 +43,10 @@ const DashboardNavbar = () => {
                 Categories
 
             </Link>
-            <Link to='/buyerDashboard'>
+            {/* <Link to='/'>
                 Dashboard
 
-            </Link>
+            </Link> */}
 
         </li>
         {user?.uid ? <li><Link onClick={handleLogout} to='/signup'>SignOut</Link></li>
