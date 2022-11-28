@@ -15,12 +15,17 @@ const MyOrders = () => {
     }, [])
     return (
         <div>
+
+
+
             <h1 className='text-center text-white text-2xl my-2'>Your Booked Products</h1>
-            {
-                myorders.map(bookedProduct => <MyOrdersCard
-                    bookedProduct={bookedProduct}
-                ></MyOrdersCard>)
-            }
+            <div className='grid lg:grid-cols-2 '>
+                {
+                    myorders.map(bookedProduct => <MyOrdersCard
+                        bookedProduct={bookedProduct}
+                    ></MyOrdersCard>)
+                }
+            </div>
         </div>
     );
 };

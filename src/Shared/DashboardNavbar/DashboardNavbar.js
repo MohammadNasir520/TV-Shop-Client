@@ -4,13 +4,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
-const Navbar = () => {
+const DashboardNavbar = () => {
     const { user, loginByEmailAndPassWord, logout } = useContext(AuthContext)
 
-
-
-
-
+    const [Buyer, setIsBuyer] = useState(false)
 
     // load user by current users email
     // const { data = [] } = useQuery({
@@ -21,52 +18,6 @@ const Navbar = () => {
     //         return data;
     //     }
     // })
-
-    const [isBuyer, setIsBuyer] = useState(false)
-    console.log(isBuyer)
-    const [isSeller, setIsSeller] = useState(false)
-    const [isAdmin, seIstAdmin] = useState(false)
-
-    // load buyer
-    useEffect(() => {
-        if (user?.email) {
-            fetch(`http://localhost:5000/users/Buyer/${user?.email}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    setIsBuyer(data.Buyer)
-                })
-        }
-    }, [user?.email])
-
-
-    //load seller
-    useEffect(() => {
-        if (user?.email) {
-            fetch(`http://localhost:5000/users/Seller/${user?.email}`)
-                .then(res => res.json())
-                .then(data => {
-
-                    setIsSeller(data.Seller)
-                })
-        }
-    }, [user?.email])
-
-    //loading admin 
-    useEffect(() => {
-        if (user?.email) {
-            fetch(`http://localhost:5000/users/Admin/${user?.email}`)
-                .then(res => res.json())
-                .then(data => {
-
-                    seIstAdmin(data.Admin)
-                })
-        }
-    }, [user?.email])
-
-
-
-
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -92,24 +43,10 @@ const Navbar = () => {
                 Categories
 
             </Link>
-            {isBuyer &&
-                <Link to='/buyerDashboard'>
-                    Dashboard
+            <Link to='/buyerDashboard'>
+                Dashboard
 
-                </Link>
-            }
-            {isSeller &&
-                <Link to='/sellerDashboard'>
-                    Dashboard
-
-                </Link>
-            }
-            {isAdmin &&
-                <Link to='/dashboard'>
-                    AdminDashboard
-
-                </Link>
-            }
+            </Link>
 
         </li>
         {user?.uid ? <li><Link onClick={handleLogout} to='/signup'>SignOut</Link></li>
@@ -141,12 +78,23 @@ const Navbar = () => {
                     {navbarItems}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end sm:hidden ">
 
+                <label htmlFor="drawer" className="btn btn-circle swap swap-rotate">
+
+                    {/* <!-- this hidden checkbox controls the state --> */}
+                    <input type="checkbox" />
+
+                    {/* <!-- hamburger icon --> */}
+                    <svg className="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" /></svg>
+
+                    {/* <!-- close icon --> */}
+                    <svg className="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" /></svg>
+
+                </label>
             </div>
-
         </div>
     );
 };
 
-export default Navbar;
+export default DashboardNavbar;

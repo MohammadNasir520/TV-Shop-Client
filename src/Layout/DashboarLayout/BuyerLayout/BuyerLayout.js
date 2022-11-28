@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { AuthContext } from '../../Context/AuthProvider';
-import DashboardNavbar from '../../Shared/DashboardNavbar/DashboardNavbar';
-import Footer from '../../Shared/Footer/Footer';
-import Navbar from '../../Shared/Navbar/Navbar';
+import { AuthContext } from '../../../Context/AuthProvider';
+import DashboardNavbar from '../../../Shared/DashboardNavbar/DashboardNavbar';
 
-const DashboardLayout = () => {
+
+
+
+const BuyerLayout = () => {
     const { user } = useContext(AuthContext)
 
     const [isBuyer, setIsBuyer] = useState(false)
@@ -67,12 +68,13 @@ const DashboardLayout = () => {
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         {/* <!-- Sidebar content here --> */}
                         {
-                            isBuyer && <>
+                            // isBuyer && 
+                            <>
                                 <li><Link to='/dashboard/myorders'>My Orders</Link></li>
                                 <li><Link>My Wish List</Link></li>
                             </>
                         }
-                        {
+                        {/* {
                             isSeller && <>
                                 <li><Link to='/dashboard/myProducts' >My Product</Link></li>
                                 <li><Link>My Buyers</Link></li>
@@ -85,7 +87,7 @@ const DashboardLayout = () => {
                                 <li><Link to='/dashboard/allBuyer'> All Buyers</Link></li>
                                 <li><Link to='/dashboard/reportedItems'>Reported Items</Link></li>
                             </>
-                        }
+                        } */}
                     </ul>
 
                 </div>
@@ -96,4 +98,4 @@ const DashboardLayout = () => {
     );
 };
 
-export default DashboardLayout;
+export default BuyerLayout;

@@ -3,7 +3,7 @@ import React from 'react';
 const MyOrdersCard = ({ bookedProduct, setProduct }) => {
     const { image, productName, Condition, sellerName, description, todayTime, productPrice, location, purchasingPrice } = bookedProduct;
     return (
-        <div className='md:w-full lg:w-[420px]'>
+        <div className='md:w-full lg:w-[420px] mx-auto'>
             <div className={`card  bg-base-100 shadow-xl bg-gradient-to-r from-[#164e63] to-[#0c4a6e] text-slate-50 font-medium`}>
                 <figure><img className='h-52' src={image} alt="TV" /></figure>
                 <div className="card-body">

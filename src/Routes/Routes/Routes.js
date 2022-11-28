@@ -1,5 +1,7 @@
 import { async } from "@firebase/util";
+import BuyerLayout from "../../Layout/DashboarLayout/BuyerLayout/BuyerLayout";
 import DashboardLayout from "../../Layout/DashboarLayout/DashboardLayout";
+import SellerLayout from "../../Layout/DashboarLayout/SellerLayout/SellerLayout";
 import AllBuyers from "../../Pages/Admin/AllBuyers/AllBuyers";
 import Allseller from "../../Pages/Admin/AllSeller/Allseller";
 import MyOrders from "../../Pages/BuyerPage/MyOrders/MyOrders";
@@ -47,20 +49,20 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <DashboardLayout></DashboardLayout>,
         children: [
-            {
-                path: '/dashboard',
-                element: <MyProducts></MyProducts>
-            },
-            {
-                path: '/dashboard/addProduct',
-                element: <AddProduct></AddProduct>
-            },
+            // {
+            //     path: '/dashboard',
+            //     element: <MyProducts></MyProducts>
+            // },
+            // {
+            //     path: '/dashboard/addProduct',
+            //     element: <AddProduct></AddProduct>
+            // },
 
-            {
-                path: '/dashboard/myProducts',
-                // loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
-                element: <MyProducts></MyProducts>
-            },
+            // {
+            //     path: '/dashboard/myProducts',
+            //     // loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
+            //     element: <MyProducts></MyProducts>
+            // },
             {
                 path: '/dashboard/allSeller',
                 element: <Allseller></Allseller>
@@ -75,5 +77,34 @@ export const router = createBrowserRouter([
                 element: <MyOrders></MyOrders>
             },
         ]
-    }
+    },
+    {
+        path: '/buyerDashboard',
+        element: <BuyerLayout></BuyerLayout>,
+        children: [
+            {
+                path: "/buyerDashboard",
+                element: <MyOrders></MyOrders>
+            }
+        ]
+    },
+    {
+        path: '/sellerDashboard',
+        element: <SellerLayout></SellerLayout>,
+        children: [
+            {
+                path: "/sellerDashboard",
+                element: <MyProducts></MyProducts>
+            },
+            {
+                path: "/sellerDashboard/myProducts",
+                element: <MyProducts></MyProducts>
+            },
+            {
+                path: "/sellerDashboard/addProduct",
+                element: <AddProduct></AddProduct>
+            },
+        ]
+    },
+
 ])
