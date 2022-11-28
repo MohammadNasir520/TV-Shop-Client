@@ -6,10 +6,10 @@ const Footer = () => {
         <div className='[#39505e]'>
             <footer className="footer p-10 bg text-base-content  text-white">
                 <div>
-                    <span className="footer-title">Services</span>
-                    <Link className="link  text-white link-hover">Branding</Link>
-                    <Link className="link link-hover">Design</Link>
-                    <Link className="link link-hover">Marketing</Link>
+                    <span className="footer-title">Product categories</span>
+                    <Link className="link  text-white link-hover">Samsung TV</Link>
+                    <Link className="link link-hover">LG Tv</Link>
+                    <Link className="link link-hover">Sony TV</Link>
                     <Link className="link link-hover">Advertisement</Link>
                 </div>
                 <div>
@@ -17,7 +17,7 @@ const Footer = () => {
                     <Link className="link link-hover">About us</Link>
                     <Link className="link link-hover">Contact</Link>
                     <Link className="link link-hover">Jobs</Link>
-                    <Link className="link link-hover">Press kit</Link>
+
                 </div>
                 <div>
                     <span className="footer-title">Social</span>
