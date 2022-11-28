@@ -105,7 +105,7 @@ const Navbar = () => {
                 </Link>
             }
             {isAdmin &&
-                <Link to='/dashboard'>
+                <Link to='/AdminDashboard'>
                     AdminDashboard
 
                 </Link>

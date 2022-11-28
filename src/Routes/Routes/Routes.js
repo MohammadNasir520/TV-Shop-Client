@@ -1,4 +1,5 @@
 import { async } from "@firebase/util";
+import AdminLout from "../../Layout/DashboarLayout/AdminLayout/AdminLout";
 import BuyerLayout from "../../Layout/DashboarLayout/BuyerLayout/BuyerLayout";
 import DashboardLayout from "../../Layout/DashboarLayout/DashboardLayout";
 import SellerLayout from "../../Layout/DashboarLayout/SellerLayout/SellerLayout";
@@ -9,6 +10,7 @@ import Dashboard from "../../Pages/DashBoard/Dashboard";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Products from "../../Pages/Products/Products";
+import ReportedItems from "../../Pages/ReportedItems/ReportedItems";
 import AddProduct from "../../Pages/SellerPages/AddProduct/AddProduct";
 import MyProducts from "../../Pages/SellerPages/MyProducts/MyProducts";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -63,10 +65,10 @@ export const router = createBrowserRouter([
             //     // loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
             //     element: <MyProducts></MyProducts>
             // },
-            {
-                path: '/dashboard/allSeller',
-                element: <Allseller></Allseller>
-            },
+            // {
+            //     path: '/dashboard/allSeller',
+            //     element: <Allseller></Allseller>
+            // },
 
             {
                 path: '/dashboard/allBuyer',
@@ -106,5 +108,27 @@ export const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: '/AdminDashboard',
+        element: <AdminLout></AdminLout>,
+        children: [
+            {
+                path: '/AdminDashboard',
+                element: <Allseller></Allseller>
+            },
+            {
+                path: '/AdminDashboard/allSeller',
+                element: <Allseller></Allseller>
+            },
+            {
+                path: '/AdminDashboard/allBuyer',
+                element: <AllBuyers></AllBuyers>
+            },
+            {
+                path: '/AdminDashboard/reportedItems',
+                element: <ReportedItems></ReportedItems>
+            },
+        ]
+    }
 
 ])
