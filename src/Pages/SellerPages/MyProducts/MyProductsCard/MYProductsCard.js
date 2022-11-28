@@ -36,7 +36,7 @@ const MYProductsCard = ({ product, setRefresh, refresh }) => {
             .then(data => {
                 console.log(data)
                 if (data.modifiedCount) {
-
+                    toast.success('Tv Advertised successfully')
                 }
             })
     }
@@ -56,7 +56,7 @@ const MYProductsCard = ({ product, setRefresh, refresh }) => {
                         <h4>Seller: {sellerName}</h4>
                         <p className='font-normal'>{description}</p>
                         <div className="card-actions justify-start grid grid-cols-2 ">
-                            <div className="border text-sm rounded-lg badge-outline pl-2 py-1">Price: {productPrice} tk </div>
+                            <div className="border text-sm rounded-lg badge-outline pl-2 py-1">Resale Price: {productPrice} tk </div>
                             <div className="border text-sm rounded-lg badge-outline pl-2 py-1">location: {location}</div>
                             <div className="border text-sm rounded-lg badge-outline pl-2 py-1 ">Original Price:{purchasingPrice}tk</div>
                             <div className=" border text-sm rounded-lg pl-2 py-1">{todayTime}</div>

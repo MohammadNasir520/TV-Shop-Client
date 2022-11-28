@@ -90,19 +90,19 @@ const Navbar = () => {
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
         <li >
-            <Link to='/categories'>
+            {/* <Link to='/categories'>
                 Categories
 
-            </Link>
+            </Link> */}
             {isBuyer &&
                 <Link to='/buyerDashboard'>
-                    Dashboard
+                    BuyerDashboard
 
                 </Link>
             }
             {isSeller &&
                 <Link to='/sellerDashboard'>
-                    Dashboard
+                    SellerDashboard
 
                 </Link>
             }

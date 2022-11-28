@@ -22,6 +22,7 @@ const MyProducts = () => {
 
     // load product according to seller by email
     const [myProducts, seMyProduct] = useState([])
+    console.log(myProducts)
     useEffect(() => {
         fetch(`http://localhost:5000/product/${user?.email}`)
             .then(res => res.json())
@@ -35,16 +36,26 @@ const MyProducts = () => {
 
     console.log(myProducts);
     return (
-        <div className='p-4 grid  md:grid-cols-2 gap-4'>
+        <div >
 
-            {
-                myProducts?.map(myProduct => <MYProductsCard
-                    product={myProduct}
-                    key={myProduct._id}
-                    setRefresh={setRefresh}
-                    refresh={refresh}
-                ></MYProductsCard>)
-            }
+
+            {myProducts.length === 0 && <div className='text-center text-2xl text-white flex items-center lg:px-16 p-5 min-h-screen mx-auto'> You have not added any tv yet . please add a tv for sale</div>}
+            <div className='p-4 grid  md:grid-cols-2 gap-5'>
+
+                {
+                    myProducts?.map(myProduct => <MYProductsCard
+                        product={myProduct}
+                        key={myProduct._id}
+                        setRefresh={setRefresh}
+                        refresh={refresh}
+                    ></MYProductsCard>)
+
+
+
+
+
+                }
+            </div>
         </div>
     );
 };

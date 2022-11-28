@@ -59,24 +59,6 @@ export const router = createBrowserRouter([
         element: <DashboardLayout></DashboardLayout>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
-            // {
-            //     path: '/dashboard',
-            //     element: <MyProducts></MyProducts>
-            // },
-            // {
-            //     path: '/dashboard/addProduct',
-            //     element: <AddProduct></AddProduct>
-            // },
-
-            // {
-            //     path: '/dashboard/myProducts',
-            //     // loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.categoryName}`),
-            //     element: <MyProducts></MyProducts>
-            // },
-            // {
-            //     path: '/dashboard/allSeller',
-            //     element: <Allseller></Allseller>
-            // },
 
             {
                 path: '/dashboard/allBuyer',
@@ -100,7 +82,11 @@ export const router = createBrowserRouter([
             {
                 path: "/buyerDashboard",
                 element: <MyOrders></MyOrders>
-            }
+            },
+            {
+                path: "/buyerDashboard/myOrders",
+                element: <MyOrders></MyOrders>
+            },
         ]
     },
     {

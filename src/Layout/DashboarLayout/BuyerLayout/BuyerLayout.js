@@ -70,7 +70,7 @@ const BuyerLayout = () => {
                         {
                             // isBuyer && 
                             <>
-                                <li><Link to='/dashboard/myorders'>My Orders</Link></li>
+                                <li><Link to='/buyerDashboard/myOrders'>My Orders</Link></li>
                                 <li><Link>My Wish List</Link></li>
                             </>
                         }

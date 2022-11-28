@@ -18,7 +18,7 @@ const AdvertisedProducts = () => {
             {
                 advertisedProducts.length !== 0 && <>
                     <h2 className='text-center text-white text-3xl my-4'>Advertised Tv</h2>
-                    <div className='grid lg:grid-cols-3 lg:m-6 gap-4'>
+                    <div className='grid lg:grid-cols-3 lg:m-6 gap-6'>
                         {
                             advertisedProducts?.map(advertisedProduct => <ProductCard
                                 product={advertisedProduct}

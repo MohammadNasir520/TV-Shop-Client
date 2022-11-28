@@ -28,10 +28,11 @@ const AddProduct = () => {
         const purchasingPrice = event.target.purchasingPrice.value;
         const purchasingYear = event.target.purchasingYear.value;
         const image = event.target.img.value;
+        const usedYear = event.target.usedYear.value;
         console.log(Condition)
         const product = {
             email, productName, productPrice, Condition, productCategory, mobileNumber, location, description, purchasingPrice, purchasingYear,
-            image, todayTime, sellerName
+            image, todayTime, sellerName, usedYear
         }
         console.log(product)
 
@@ -47,7 +48,7 @@ const AddProduct = () => {
             .then(data => {
                 console.log(data)
                 toast.success('product added successfully')
-                navigate('/dashboard/myProducts')
+                navigate('/sellerDashboard/myProducts')
             })
     }
     return (
@@ -145,6 +146,14 @@ const AddProduct = () => {
 
                     </label>
                     <input required name='purchasingYear' type="text" placeholder="Type here" className="input w-full " />
+
+                </div>
+                <div className="form-control w-full ">
+                    <label className="label">
+                        <span className="label-text text-white">Used Year</span>
+
+                    </label>
+                    <input required name='usedYear' type="text" placeholder="Type here" className="input w-full " />
 
                 </div>
             </div>

@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from '../../Components/Modal';
 
 const ProductCard = ({ product, setProduct }) => {
 
-    const { image, productName, Condition, description, productPrice, sellerName, location, purchasingPrice, todayTime, } = product;
+    const { image, productName, Condition, description, productPrice, sellerName, location, purchasingPrice, todayTime, usedYear } = product;
+
+
+
+    // checking seller verification 
+    useEffect(() => {
+        fetch(``)
+    }, [])
 
     return (
         <div className='md:w-full lg:w-[420px]'>
@@ -14,11 +21,14 @@ const ProductCard = ({ product, setProduct }) => {
                         TV Name: {productName}
 
                     </h2>
-                    <div className="badge badge-primary ">Condition:{Condition}</div>
+                    <div className='flex justify-between'>
+                        <div className="badge badge-primary ">Condition:{Condition}</div>
+                        <div className="badge badge-primary ">used year:{usedYear}</div>
+                    </div>
                     <h4>Seller: {sellerName}</h4>
                     <p className='font-normal'>{description}</p>
                     <div className="card-actions justify-start grid grid-cols-2 ">
-                        <div className="border text-xs rounded-lg badge-outline pl-2 py-1">Price: {productPrice} tk </div>
+                        <div className="border text-xs rounded-lg badge-outline pl-2 py-1">Resale Price: {productPrice} tk </div>
                         <div className="border text-xs rounded-lg badge-outline pl-2 py-1">location: {location}</div>
                         <div className="border text-xs rounded-lg badge-outline pl-2 py-1 ">Original Price:{purchasingPrice}tk</div>
                         <div className=" border text-xs rounded-lg pl-2 py-1">{todayTime}</div>
