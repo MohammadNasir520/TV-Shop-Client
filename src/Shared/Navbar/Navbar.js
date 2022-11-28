@@ -3,7 +3,7 @@ import { data } from 'autoprefixer';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
-
+import icon from '../../images/tv.png';
 const Navbar = () => {
     const { user, loginByEmailAndPassWord, logout } = useContext(AuthContext)
 
@@ -134,6 +134,7 @@ const Navbar = () => {
                         {navbarItems}
                     </ul>
                 </div>
+                <img className='h-8 w-8 rounded' src={icon} alt="icon" />
                 <NavLink className="btn btn-ghost normal-case text-xl">TV Shop</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
