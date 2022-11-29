@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
@@ -8,6 +8,13 @@ const Login = () => {
 
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate()
+
+
+
+
+
+
+
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -27,29 +34,69 @@ const Login = () => {
                 console.log(err)
             })
     }
+
     const handleGoogleLogin = () => {
         loginWithEmail(googleProvider)
             .then(result => {
-                const user = result.user;
+                const Currentuser = result.user;
                 console.log(user)
+
+
+
+
+
+
+
+
+
+
+                const createdUser = {
+                    role: 'Buyer',
+                    name: Currentuser?.displayName,
+                    email: Currentuser?.email,
+
+
+                }
+                console.log(createdUser)
+
+
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(createdUser)
+
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        navigate('/')
+                    })
+
+
+
             })
             .catch(err => {
                 console.log(err)
             })
 
+
+
     }
     return (
-        <form onSubmit={handleLogin}>
 
 
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    {/* <div className="text-center lg:text-left">
+
+        <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                {/* <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div> */}
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <form onSubmit={handleLogin}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -69,16 +116,19 @@ const Login = () => {
                             <div className="form-control mt-3">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                            <div className="form-control mt-4">
-                                <button onClick={handleGoogleLogin} className="btn btn-primary">Login With Google</button>
-                            </div>
-                            <p>Don't have an account?<Link to='/signup' className="label-text-alt text-sky-700 link link-hover ">Please  SignUp  Here</Link></p>
+
+                        </form>
+
+                        <div className="form-control mt-4">
+                            <button onClick={handleGoogleLogin} className="btn btn-primary">Login With Google</button>
                         </div>
+                        <p>Don't have an account?<Link to='/signup' className="label-text-alt text-sky-700 link link-hover ">Please  SignUp  Here</Link></p>
                     </div>
                 </div>
-
             </div>
-        </form>
+
+        </div>
+
     );
 };
 
