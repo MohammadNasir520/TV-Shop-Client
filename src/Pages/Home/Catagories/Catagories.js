@@ -12,7 +12,7 @@ const Catagories = () => {
 
     const handleSelectedCategory = category => {
         setSelectedCategory(category)
-        fetch(`http://localhost:5000/category/${category.categoryName}`)
+        fetch(`https://tv-shop-server.vercel.app/category/${category.categoryName}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)

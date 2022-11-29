@@ -37,7 +37,7 @@ const AddProduct = () => {
         console.log(product)
 
         // add product by post method
-        fetch('http://localhost:5000/products', {
+        fetch('https://tv-shop-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

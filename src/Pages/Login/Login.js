@@ -60,7 +60,7 @@ const Login = () => {
                 console.log(createdUser)
 
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://tv-shop-server.vercel.app/users', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -72,6 +72,7 @@ const Login = () => {
                     .then(data => {
                         console.log(data)
                         navigate('/')
+
                     })
 
 

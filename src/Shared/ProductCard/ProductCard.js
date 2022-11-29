@@ -23,7 +23,8 @@ const ProductCard = ({ product, setProduct }) => {
                     </h2>
                     <div className='flex justify-between'>
                         <div className="badge badge-primary ">Condition:{Condition}</div>
-                        <div className="badge badge-primary ">used year:{usedYear}</div>
+                        <div className=" border text-xs rounded-lg pl-2 py-1">Post on: {todayTime}</div>
+                        {/* <div className="badge badge-primary "></div> */}
                     </div>
                     <h4>Seller: {sellerName}</h4>
                     <p className='font-normal'>{description}</p>
@@ -31,7 +32,8 @@ const ProductCard = ({ product, setProduct }) => {
                         <div className="border text-xs rounded-lg badge-outline pl-2 py-1">Resale Price: {productPrice} tk </div>
                         <div className="border text-xs rounded-lg badge-outline pl-2 py-1">location: {location}</div>
                         <div className="border text-xs rounded-lg badge-outline pl-2 py-1 ">Original Price:{purchasingPrice}tk</div>
-                        <div className=" border text-xs rounded-lg pl-2 py-1">{todayTime}</div>
+                        <div className="border text-xs rounded-lg badge-outline pl-2 py-1 ">used year:{usedYear}</div>
+
                         {/* <div className="badge badge-outline">Fashion</div>
                         <div className="badge badge-outline">Products</div> */}
                     </div>

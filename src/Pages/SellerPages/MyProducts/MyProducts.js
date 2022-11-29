@@ -12,7 +12,7 @@ const MyProducts = () => {
 
     //     queryKey: ['userRole'],
     //     queryFn: async () => {
-    //         const res = await fetch(`http://localhost:5000/product/${user?.email}`);
+    //         const res = await fetch(`https://tv-shop-server.vercel.app/product/${user?.email}`);
     //         const data = await res.json();
     //         return data;
     //     }
@@ -24,7 +24,7 @@ const MyProducts = () => {
     const [myProducts, seMyProduct] = useState([])
     console.log(myProducts)
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${user?.email}`)
+        fetch(`https://tv-shop-server.vercel.app/product/${user?.email}`)
             .then(res => res.json())
             .then(data => {
 

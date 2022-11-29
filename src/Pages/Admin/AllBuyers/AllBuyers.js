@@ -7,7 +7,7 @@ const AllBuyers = () => {
 
     // load al buyers
     useEffect(() => {
-        fetch('http://localhost:5000/users/Buyer')
+        fetch('https://tv-shop-server.vercel.app/users/Buyer')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -20,7 +20,7 @@ const AllBuyers = () => {
 
     const handleDeletebuyerbyId = Buyer => {
         console.log('dlete buyer', Buyer)
-        fetch(`http://localhost:5000/users/buyer/${Buyer._id}`, {
+        fetch(`https://tv-shop-server.vercel.app/users/buyer/${Buyer._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

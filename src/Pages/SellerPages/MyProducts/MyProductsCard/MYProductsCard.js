@@ -8,7 +8,7 @@ const MYProductsCard = ({ product, setRefresh, refresh }) => {
     // seller product delete functionaliy
     const handleDeletProduct = (id) => {
         console.log('delete', id)
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://tv-shop-server.vercel.app/products/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -25,7 +25,7 @@ const MYProductsCard = ({ product, setRefresh, refresh }) => {
     // seller product advertise items
     const handleAdvertiseProducts = id => {
         console.log('advertised', id)
-        fetch(`http://localhost:5000/productss/${id}`, {
+        fetch(`https://tv-shop-server.vercel.app/productss/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

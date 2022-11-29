@@ -9,7 +9,7 @@ const SellerLayout = () => {
     //load seller
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/users/Seller/${user?.email}`)
+            fetch(`https://tv-shop-server.vercel.app/users/Seller/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
 

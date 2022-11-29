@@ -31,7 +31,7 @@ const Modal = ({ product, setProduct }) => {
             productCategory, productName, productPrice, purchasingPrice, purchasingYear, sellerName
             , todayTime
         }
-        fetch('http://localhost:5000/bookedProduct', {
+        fetch('https://tv-shop-server.vercel.app/bookedProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

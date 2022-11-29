@@ -24,7 +24,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                fetch('http://localhost:5000/users', {
+                fetch('https://tv-shop-server.vercel.app/users', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -35,6 +35,7 @@ const SignUp = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
+
                         navigate('/')
                     })
             })

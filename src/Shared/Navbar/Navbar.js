@@ -9,18 +9,17 @@ const Navbar = () => {
 
 
 
-
-
-
     // load user by current users email
     // const { data = [] } = useQuery({
     //     queryKey: ['userRole'],
     //     queryFn: async () => {
-    //         const res = await fetch(`http://localhost:5000/users?email=${user?.email}`);
+    //         const res = await fetch(`https://tv-shop-server.vercel.app/users?email=${user?.email}`);
     //         const data = await res.json();
     //         return data;
     //     }
     // })
+    // window.location.reload();
+
 
     const [isBuyer, setIsBuyer] = useState(false)
     console.log("buyer", isBuyer)
@@ -29,23 +28,23 @@ const Navbar = () => {
     const [isAdmin, seIstAdmin] = useState(false)
     console.log('isadmin', isAdmin)
 
-    // load buyer
-    useEffect(() => {
-        if (user?.email) {
-            fetch(`http://localhost:5000/users/Buyer/${user?.email}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    setIsBuyer(data.Buyer)
-                })
-        }
-    }, [user?.email])
+    // // load buyer
+    // useEffect(() => {
+    //     if (user?.email) {
+    //         fetch(`https://tv-shop-server.vercel.app/users/Buyer/${user?.email}`)
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 console.log(data)
+    //                 setIsBuyer(data.Buyer)
+    //             })
+    //     }
+    // }, [user?.email])
 
 
     //load seller
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/users/Seller/${user?.email}`)
+            fetch(`https://tv-shop-server.vercel.app/users/Seller/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
 
@@ -57,7 +56,7 @@ const Navbar = () => {
     //loading admin 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/users/Admin/${user?.email}`)
+            fetch(`https://tv-shop-server.vercel.app/users/Admin/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
 
@@ -89,31 +88,44 @@ const Navbar = () => {
 
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
-        <li >
-            {/* <Link to='/categories'>
-                Categories
+        {
 
-            </Link> */}
-            {isBuyer &&
-                <Link to='/buyerDashboard'>
-                    BuyerDashboard
 
-                </Link>
-            }
-            {isSeller &&
-                <Link to='/sellerDashboard'>
-                    SellerDashboard
+            <li >
 
-                </Link>
-            }
-            {isAdmin &&
-                <Link to='/AdminDashboard'>
-                    AdminDashboard
+                <>
 
-                </Link>
-            }
+                    {
 
-        </li>
+                        <Link to='/dashboard'>
+                            Dashboard
+
+                        </Link>}
+
+
+                    {/* {isBuyer &&
+                        <Link to='/buyerDashboard'>
+                            BuyerDashboard
+
+                        </Link>
+                    } */}
+                    {/* {isSeller &&
+                        <Link to='/sellerDashboard'>
+                            SellerDashboard
+
+                        </Link>
+                    } */}
+                    {/* {isAdmin &&
+                        <Link to='/AdminDashboard'>
+                            AdminDashboard
+
+                        </Link>
+                    } */}
+                </>
+
+            </li>
+        }
+
         {user?.uid ? <li><Link onClick={handleLogout} to='/signup'>SignOut</Link></li>
 
             : <>
@@ -125,6 +137,17 @@ const Navbar = () => {
 
         {/* {Buyer?.Buyer && <li><Link to='/'>My Products</Link></li>} */}
     </>
+
+
+
+    window.onload = function () {
+        if (!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+    }
+
+
     return (
         <div className="navbar bg-gradient-to-r from-primary to-secondary  w-full">
             <div className="navbar-start">

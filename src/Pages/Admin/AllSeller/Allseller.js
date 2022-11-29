@@ -12,7 +12,7 @@ const Allseller = () => {
     const [refresh, setRefresh] = useState(false);
     // load all sellers
     useEffect(() => {
-        fetch('http://localhost:5000/users/seller')
+        fetch('https://tv-shop-server.vercel.app/users/seller')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -23,7 +23,7 @@ const Allseller = () => {
     // delete sellers by id
     const handleDeleteSeller = (seller) => {
         console.log(seller, 'delete')
-        fetch(`http://localhost:5000/users/seller/${seller._id}`, {
+        fetch(`https://tv-shop-server.vercel.app/users/seller/${seller._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -40,7 +40,7 @@ const Allseller = () => {
 
     const handleVirifySeller = seller => {
         console.log(seller)
-        fetch(`http://localhost:5000/seller/${seller.email}`, {
+        fetch(`https://tv-shop-server.vercel.app/seller/${seller.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

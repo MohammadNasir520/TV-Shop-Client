@@ -17,7 +17,7 @@ const LandingBanner = () => {
             >
                 <div class="max-w-xl text-center sm:text-left">
                     <h1 class="text-3xl font-extrabold text-white sm:text-5xl">
-                        Welcome to TV Shop
+                        Welcome to Online TV Shop
 
                         <strong class="block font-extrabold text-rose-700">
                             Like Real TV Shop

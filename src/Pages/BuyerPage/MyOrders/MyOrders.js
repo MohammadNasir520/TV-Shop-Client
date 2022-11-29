@@ -5,7 +5,7 @@ import MyOrdersCard from '../MyOrdersCard/MyOrdersCard';
 const MyOrders = () => {
     const [myorders, setMyOrders] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/bookedProduct')
+        fetch('https://tv-shop-server.vercel.app/bookedProduct')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

@@ -18,7 +18,7 @@ const BuyerLayout = () => {
     // load buyer
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/users/Buyer/${user?.email}`)
+            fetch(`https://tv-shop-server.vercel.app/users/Buyer/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -30,7 +30,7 @@ const BuyerLayout = () => {
     //load seller
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/users/Seller/${user?.email}`)
+            fetch(`https://tv-shop-server.vercel.app/users/Seller/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
 
@@ -42,7 +42,7 @@ const BuyerLayout = () => {
     //loading admin 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/users/Admin/${user?.email}`)
+            fetch(`https://tv-shop-server.vercel.app/users/Admin/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
 
