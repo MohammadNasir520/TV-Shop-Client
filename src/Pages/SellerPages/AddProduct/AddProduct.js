@@ -47,8 +47,8 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                toast.success('product added successfully')
-                navigate('/sellerDashboard/myProducts')
+                toast.success('TV added successfully')
+                navigate('/dashboard/myproducts')
             })
     }
     return (
