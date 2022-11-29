@@ -5,6 +5,8 @@ import { toast } from 'react-toastify';
 const AllBuyers = () => {
     const [allBuyer, setAllBuyer] = useState([]);
 
+
+    const [refresh, setRefresh] = useState(false)
     // load al buyers
     useEffect(() => {
         fetch('https://tv-shop-server.vercel.app/users/Buyer')
@@ -12,8 +14,9 @@ const AllBuyers = () => {
             .then(data => {
                 console.log(data)
                 setAllBuyer(data)
+                setRefresh(!refresh)
             })
-    }, [])
+    }, [refresh])
     // delete buyers by id
 
 
@@ -78,7 +81,7 @@ const AllBuyers = () => {
                                         <div className="badge ">{index + 1}</div>
                                         <h2 className="card-title">Name: {buyer.name}</h2>
                                         <p>Email: {buyer.email}</p>
-                                        <button onClick={() => handleDeletebuyerbyId(buyer)} className="btn btn-outline btn-error btn-sm">Delete Seller</button>
+                                        <button onClick={() => handleDeletebuyerbyId(buyer)} className="btn btn-outline btn-error btn-sm">Delete Buyer</button>
 
                                     </div>
                                 </div>)
