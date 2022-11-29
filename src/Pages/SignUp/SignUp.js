@@ -33,7 +33,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-
+                toast(`you have created an account as a ${role} `)
                 handleUpdateUser(name)
 
                 fetch('https://tv-shop-server.vercel.app/users', {
