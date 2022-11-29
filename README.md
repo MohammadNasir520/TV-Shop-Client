@@ -18,5 +18,6 @@
   ##
 
   ## Admin Email and passWord 
-  Email: << admin@gmail.com   >>
-  password: aaaaaa
+  ### Email:  admin@gmail.com   
+
+  ### password: aaaaaa
