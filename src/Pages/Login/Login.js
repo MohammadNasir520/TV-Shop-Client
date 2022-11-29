@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
@@ -10,7 +10,8 @@ const Login = () => {
     const navigate = useNavigate()
 
 
-
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
 
 
@@ -25,7 +26,7 @@ const Login = () => {
         loginByEmailAndPassWord(email, password)
             .then(result => {
                 const user = result.user;
-                navigate('/')
+                navigate(from, { replace: true })
                 console.log(user)
             })
             .catch(err => {

@@ -1,12 +1,21 @@
 import { type } from '@testing-library/user-event/dist/type';
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
+    const { updateUser } = useContext(AuthContext)
     const [Buyer, setBuer] = useState(false)
     const { createUserByEmailAndPss } = useContext(AuthContext)
     const navigate = useNavigate();
+
+
+
+
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+
     const handleSignUp = event => {
         event.preventDefault()
         const role = event.target.userType.value;
@@ -24,6 +33,9 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
+                handleUpdateUser(name)
+
                 fetch('https://tv-shop-server.vercel.app/users', {
                     method: "POST",
                     headers: {
@@ -36,7 +48,14 @@ const SignUp = () => {
                     .then(data => {
                         console.log(data)
 
-                        navigate('/')
+
+
+
+
+
+
+
+                        navigate(from, { replace: true })
                     })
             })
             .catch(error => {
@@ -48,6 +67,12 @@ const SignUp = () => {
 
     }
 
+    const handleUpdateUser = username => {
+        const name = {
+            displayName: username
+        }
+        updateUser(name)
+    }
 
     return (
         <form onSubmit={handleSignUp}>
