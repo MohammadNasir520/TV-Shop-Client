@@ -14,19 +14,9 @@ const DashboardLayout = () => {
     const [isSeller, setIsSeller] = useState(false)
     const [isAdmin, seIstAdmin] = useState(false)
 
-    // console.log(isAdmin)
+    console.log(isAdmin)
 
-    // // load buyer
-    // useEffect(() => {
-    //     if (user?.email) {
-    //         fetch(`http://localhost:5000/users/buyer/${user?.email}`)
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data)
-    //                 setIsBuyer(data.Buyer)
-    //             })
-    //     }
-    // }, [user?.email])
+
 
     useEffect(() => {
         fetch(`https://tv-shop-server.vercel.app/users/buyer/${user?.email}`)
