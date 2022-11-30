@@ -8,6 +8,8 @@ const SignUp = () => {
     const { updateUser } = useContext(AuthContext)
     const [Buyer, setBuer] = useState(false)
     const { createUserByEmailAndPss } = useContext(AuthContext)
+    const [error, seterror] = useState('')
+
     const navigate = useNavigate();
 
 
@@ -33,6 +35,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                seterror('')
                 toast(`you have created an account as a ${role} `)
                 handleUpdateUser(name)
 
@@ -60,6 +63,7 @@ const SignUp = () => {
             })
             .catch(error => {
                 console.log(error)
+                seterror(error.message)
             })
         console.log(createdUser)
 
@@ -117,6 +121,7 @@ const SignUp = () => {
                                     <option selected >Buyer</option>
                                 </select>
                             </div>
+                            <p className='text-red-600'>{error}</p>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">SignUP</button>
                             </div>

@@ -18,17 +18,21 @@ const MyOrders = () => {
     }, [user?.email])
     return (
         <div>
+            {
+                myorders.length === 0 ? <div><p className='text-white text-center text-3xl mt-10'>You have no bokked product.... <br /> Please booke  products</p></div>
+                    :
+                    <div>
+                        <h1 className='text-center text-white text-2xl my-2'>Your Booked Products</h1>
+                        <div className='grid lg:grid-cols-2 '>
+                            {
+                                myorders.map(bookedProduct => <MyOrdersCard
+                                    bookedProduct={bookedProduct}
+                                ></MyOrdersCard>)
+                            }
+                        </div>
+                    </div>
 
-
-
-            <h1 className='text-center text-white text-2xl my-2'>Your Booked Products</h1>
-            <div className='grid lg:grid-cols-2 '>
-                {
-                    myorders.map(bookedProduct => <MyOrdersCard
-                        bookedProduct={bookedProduct}
-                    ></MyOrdersCard>)
-                }
-            </div>
+            }
         </div>
     );
 };

@@ -63,10 +63,10 @@ export const router = createBrowserRouter([
         element: <DashboardLayout></DashboardLayout>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
-            // {
-            //     path: '/dashboard',
-            //     element: <DeafaultDashbardPage></DeafaultDashbardPage>
-            // },
+            {
+                path: '/dashboard',
+                element: <DeafaultDashbardPage></DeafaultDashbardPage>
+            },
             {
                 path: '/dashboard/allBuyer',
                 element: <AllBuyers></AllBuyers>

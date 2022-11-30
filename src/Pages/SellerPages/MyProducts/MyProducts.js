@@ -38,7 +38,9 @@ const MyProducts = () => {
     return (
         <div >
 
-
+            {
+                !myProducts.length === 0 && <p className='text-white text-center text-3xl my-4'>Your Added Products</p>
+            }
             {myProducts.length === 0 && <div className='text-center text-2xl text-white flex items-center lg:px-16 p-5 min-h-screen mx-auto'> You have not added any tv yet . please add a tv for sale</div>}
             <div className='p-4 grid  md:grid-cols-2 gap-5'>
 

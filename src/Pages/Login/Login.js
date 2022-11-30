@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
     const { user, loginByEmailAndPassWord, loginWithEmail } = useContext(AuthContext)
-
+    const [error, seterror] = useState('')
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate()
 
@@ -28,9 +28,10 @@ const Login = () => {
                 const user = result.user;
                 navigate(from, { replace: true })
                 console.log(user)
+                seterror('')
             })
             .catch(err => {
-
+                seterror(err.message)
 
                 console.log(err)
             })
@@ -81,6 +82,7 @@ const Login = () => {
             })
             .catch(err => {
                 console.log(err)
+                seterror(err.message)
             })
 
 
@@ -99,6 +101,7 @@ const Login = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleLogin}>
+                            <p className='text-center text-xl'>Login</p>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -114,7 +117,7 @@ const Login = () => {
 
                                 </label>
                             </div>
-
+                            <p className='text-red-600'>{error}</p>
                             <div className="form-control mt-3">
                                 <button className="btn btn-primary">Login</button>
                             </div>

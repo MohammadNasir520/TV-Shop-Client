@@ -13,17 +13,17 @@ const DeafaultDashbardPage = () => {
     const [isAdmin, seIstAdmin] = useState(false)
     console.log('isadmin', isAdmin)
 
-    // // load buyer
-    // useEffect(() => {
-    //     if (user?.email) {
-    //         fetch(`https://tv-shop-server.vercel.app/users/Buyer/${user?.email}`)
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data)
-    //                 setIsBuyer(data.Buyer)
-    //             })
-    //     }
-    // }, [user?.email])
+    // load buyer
+    useEffect(() => {
+        if (user?.email) {
+            fetch(`https://tv-shop-server.vercel.app/users/Buyer/${user?.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    setIsBuyer(data.Buyer)
+                })
+        }
+    }, [user?.email])
 
 
 
@@ -63,12 +63,12 @@ const DeafaultDashbardPage = () => {
             {
                 isSeller && <Navigate to='/dashboard/myproducts'></Navigate>
             }
-            {/* {
-                isBuyer && <Navigate to='/dashboard/myproducts'></Navigate>
+            {
+                isBuyer && <Navigate to='/dashboard/myorders'></Navigate>
             }
             {
-                isSeller && <Navigate to='/dashboard/myproducts'></Navigate>
-            } */}
+                isAdmin && <p>admin</p>
+            }
         </div>
     );
 };

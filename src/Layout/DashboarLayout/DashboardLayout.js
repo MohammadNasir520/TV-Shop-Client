@@ -17,6 +17,7 @@ const DashboardLayout = () => {
     console.log(isAdmin)
 
 
+    // cheking buyer
 
     useEffect(() => {
         fetch(`https://tv-shop-server.vercel.app/users/buyer/${user?.email}`)
@@ -57,6 +58,7 @@ const DashboardLayout = () => {
         <>
             <DashboardNavbar></DashboardNavbar>
 
+            {/* <Navbar></Navbar> */}
             <div className="drawer drawer-mobile">
                 <input id="drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">

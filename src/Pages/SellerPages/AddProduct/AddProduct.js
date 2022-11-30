@@ -53,6 +53,7 @@ const AddProduct = () => {
     }
     return (
         <form onSubmit={handleAddProduct}>
+            <h1 className='text-white text-center text-3xl my-4'>Add a TV For Sale</h1>
             <div className='grid lg:grid-cols-3 gap-4  p-10'>
 
 

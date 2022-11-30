@@ -135,7 +135,7 @@ const Navbar = () => {
             </>}
 
 
-        {/* {Buyer?.Buyer && <li><Link to='/'>My Products</Link></li>} */}
+
     </>
 
 
