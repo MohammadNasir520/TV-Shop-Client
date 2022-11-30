@@ -67,7 +67,7 @@ const DeafaultDashbardPage = () => {
                 isBuyer && <Navigate to='/dashboard/myorders'></Navigate>
             }
             {
-                isAdmin && <p>admin</p>
+                isAdmin && <Navigate to='/dashboard/allseller'></Navigate>
             }
         </div>
     );
