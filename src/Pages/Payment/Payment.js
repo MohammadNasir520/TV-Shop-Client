@@ -1,5 +1,17 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import CheckoutForm from './CheckoutForm';
+
+
+
+const stripePromise = loadStripe(process.env.REACT_APP_Stripe_PK);
+console.log(stripePromise)
+
+
+
+
 
 const Payment = () => {
     const BookingProduct = useLoaderData();
@@ -25,11 +37,14 @@ const Payment = () => {
                             {/* <div className="badge badge-outline">Products</div> */}
                         </div>
 
-                        <button
-                            className=" border  rounded-lg pl-2 py-1 w-1/2 mx-auto text-center bg-gradient-to-r from-primary to-secondary text-black "
 
-                        > Pay
-                        </button>
+                        <div>
+                            <Elements stripe={stripePromise}>
+                                <CheckoutForm BookingProduct={BookingProduct} />
+                            </Elements>
+                        </div>
+
+
 
                     </div>
                 </div>
