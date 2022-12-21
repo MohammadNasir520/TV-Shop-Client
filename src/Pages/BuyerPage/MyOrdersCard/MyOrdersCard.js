@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyOrdersCard = ({ bookedProduct, setProduct }) => {
-    const { image, productName, Condition, sellerName, description, todayTime, productPrice, location, purchasingPrice } = bookedProduct;
+    const { productId, image, productName, Condition, sellerName, description, todayTime, productPrice, location, purchasingPrice } = bookedProduct;
+    console.log(bookedProduct)
     return (
         <div className='md:w-full lg:w-[420px] mx-auto'>
             <div className={`card  bg-base-100 shadow-xl bg-gradient-to-r from-[#164e63] to-[#0c4a6e] text-slate-50 font-medium`}>
@@ -23,11 +25,17 @@ const MyOrdersCard = ({ bookedProduct, setProduct }) => {
                     <div className="badge badge-outline">Products</div> */}
                     </div>
 
-                    <label
-                        onClick={() => setProduct(bookedProduct)}
-                        htmlFor="BookNowModal"
-                        className=" border  rounded-lg pl-2 py-1 w-1/2 mx-auto text-center bg-gradient-to-r from-primary to-secondary text-black ">Pay
-                    </label>
+                    <Link className=" border  rounded-lg pl-2 py-1 w-1/2 mx-auto text-center bg-gradient-to-r from-primary to-secondary text-black "
+                        to={`/dashboard/payment/${productId}`}>
+                        <button
+                        // onClick={() => setProduct(bookedProduct)}
+
+                        // htmlFor="BookNowModal"
+
+                        > Buy
+                        </button>
+                    </Link>
+
                 </div>
             </div>
 

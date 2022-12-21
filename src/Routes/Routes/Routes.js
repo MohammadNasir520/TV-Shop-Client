@@ -14,6 +14,7 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Faq from "../../Pages/Faq/Faq";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import Payment from "../../Pages/Payment/Payment";
 import Products from "../../Pages/Products/Products";
 import ReportedItems from "../../Pages/ReportedItems/ReportedItems";
 import AddProduct from "../../Pages/SellerPages/AddProduct/AddProduct";
@@ -87,6 +88,11 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/allSeller",
                 element: <Allseller></Allseller>
+            },
+            {
+                path: "/dashboard/payment/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/bookingProduct/${params.id}`),
+                element: <Payment></Payment>
             },
         ]
     },
