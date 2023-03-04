@@ -94,7 +94,7 @@ const CheckoutForm = ({ BookingProduct }) => {
                 productId
 
             }
-            fetch("REACT_APP_Base_url/payments", {
+            fetch(`${process.env.REACT_APP_Base_url}/payments`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
