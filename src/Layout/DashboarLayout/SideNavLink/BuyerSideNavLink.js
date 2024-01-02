@@ -5,9 +5,9 @@ const BuyerSideNavLink = () => {
     return (
         <div>
             <li><Link to='/dashboard/myorders'>My Orders</Link></li>
-            <li><Link>My Wish List</Link></li>
+            {/* <li><Link>My Wish List</Link></li> */}
         </div>
     );
 };
 
-export default BuyerSideNavLink;
+export default BuyerSideNavLink

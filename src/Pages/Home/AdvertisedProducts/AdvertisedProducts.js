@@ -23,7 +23,7 @@ const AdvertisedProducts = () => {
             })
     }, [])
     return (
-        <div>
+        <div className='min-h-screen'>
 
             {
                 loading ?

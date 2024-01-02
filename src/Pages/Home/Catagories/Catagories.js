@@ -43,8 +43,8 @@ const Catagories = () => {
         },
     ]
     return (
-        <div className=' p-5' >
-            <h1 className='text-center text-white text-3xl my-4'>Here Choose your Categories</h1>
+        <div className=' p-5 min-h-screen' >
+            <h1 className='text-center text-white text-3xl my-8'>Here Choose your Categories</h1>
             <div className='grid lg:grid-cols-3 gap-3 '>
                 {
                     productsCategory?.map((category, i) => <CategoryCard

@@ -3,12 +3,10 @@ import React from 'react';
 const Banner = () => {
     return (
         <div>
-            {/* <!-- component --> */}
-            {/* <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"> */}
 
 
-            <section className="relative pt-16 bg-blueGray-50">
+
+            <section className="relative pt-16 bg-blueGray-50 min-h-screen">
                 <h1 className='text-2xl text-center mb-3 text-white'> Our Features</h1>
                 <div className="container mx-auto">
                     <div className="flex flex-wrap items-center">

@@ -34,9 +34,9 @@ const MyOrders = () => {
                 console.log(data);
                 toast.error(`${order.productName} deleted`)
 
+                setLoading(false)
                 const existingOrder = myorders.filter((singleOrder) => singleOrder._id !== order._id)
                 setMyOrders(existingOrder)
-                setLoading(false)
             })
             .catch(error => {
                 console.log(error);
