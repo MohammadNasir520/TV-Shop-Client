@@ -16,9 +16,9 @@ export const saveUerToDatabase = async (user) => {
 
 
 export const getRoleByEmail = async (email) => {
-    // const response = await fetch(`${process.env.REACT_APP_Base_url}/user/${email}`)
+    const response = await fetch(`${process.env.REACT_APP_Base_url}/user/${email}`)
     console.log(email)
-    const response = await fetch(`http://localhost:5000/user/${email}`)
+    // const response = await fetch(`http://localhost:5000/user/${email}`)
     const data = await response.json()
     console.log("data", data)
     return data.role;

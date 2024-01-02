@@ -15,6 +15,7 @@ const AdvertisedProducts = () => {
             .then(res => res.json())
             .then(data => {
                 setAdverTisedProducts(data)
+                console.log(data)
                 if (data) {
                     setLoading(false)
                 }

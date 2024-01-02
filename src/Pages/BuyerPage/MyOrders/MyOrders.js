@@ -12,6 +12,8 @@ const MyOrders = () => {
     const [loading, setLoading] = useState(true)
 
     const [myorders, setMyOrders] = useState([])
+
+
     useEffect(() => {
         setLoading(true)
         fetch(`${process.env.REACT_APP_Base_url}/bookedProduct/${user?.email}`)
@@ -31,8 +33,10 @@ const MyOrders = () => {
             .then(data => {
                 console.log(data);
                 toast.error(`${order.productName} deleted`)
-                setLoading(false)
 
+                const existingOrder = myorders.filter((singleOrder) => singleOrder._id !== order._id)
+                setMyOrders(existingOrder)
+                setLoading(false)
             })
             .catch(error => {
                 console.log(error);
@@ -43,25 +47,7 @@ const MyOrders = () => {
         return <Spinner></Spinner>
     }
     return (
-        // <div>
-        //     {
-        //         myorders.length === 0 ? <div><p className='text-white text-center text-3xl mt-10'>You have no bokked product.... <br /> Please booke  products</p></div>
-        //             :
-        //             <div>
-        //                 <h1 className='text-center text-white text-2xl my-2'>Your Booked Products</h1>
-        //                 <div className='grid lg:grid-cols-2 '>
-        //                     {
-        //                         myorders.map(bookedProduct => <MyOrdersCard
-        //                             key={bookedProduct._id}
-        //                             bookedProduct={bookedProduct}
-        //                             myorders={myorders}
-        //                         ></MyOrdersCard>)
-        //                     }
-        //                 </div>
-        //             </div>
 
-        //     }
-        // </div>
 
         <>
             {

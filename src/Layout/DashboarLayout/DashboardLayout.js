@@ -13,13 +13,13 @@ const DashboardLayout = () => {
 
     const { user, loading, logout } = useContext(AuthContext)
     const [role, setRole] = useState('')
-    console.log("userRole:", role)
 
-    console.log(user.email)
+
+
     useEffect(() => {
         getRoleByEmail(user?.email)
             .then(data => {
-                console.log('role', data);
+
                 setRole(data)
             })
     }, [user?.email])
