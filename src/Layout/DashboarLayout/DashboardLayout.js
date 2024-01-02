@@ -63,7 +63,11 @@ const DashboardLayout = () => {
                             role === 'Buyer' && <BuyerSideNavLink></BuyerSideNavLink>
                         }
                         {
-                            role === 'Seller' && <SellerSideNavLink></SellerSideNavLink>
+                            role === 'Seller' && <div>
+
+                                <SellerSideNavLink></SellerSideNavLink>
+                                <BuyerSideNavLink></BuyerSideNavLink>
+                            </div>
                         }
                         {
                             role === 'Admin' && <AdminSidNavLink></AdminSidNavLink>

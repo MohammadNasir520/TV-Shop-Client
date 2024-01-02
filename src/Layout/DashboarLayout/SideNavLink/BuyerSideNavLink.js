@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const BuyerSideNavLink = () => {
     return (
         <div>
-            <li><Link to='/dashboard/myorders'>My Orders</Link></li>
+            <li><Link to='/dashboard/myorders'>My Bookings</Link></li>
             {/* <li><Link>My Wish List</Link></li> */}
         </div>
     );
