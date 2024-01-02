@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 const MYProductsCard = ({ product, setRefresh, refresh }) => {
-    const { _id, image, productName, Condition, description, productPrice, sellerName, location, purchasingPrice, todayTime, } = product;
-
+    const { _id, image, productName, Condition, description, isAdvertised
+        , productPrice, sellerName, location, purchasingPrice, todayTime, } = product;
+    console.log("product", product)
     // seller product delete functionaliy
     const handleDeletProduct = (id) => {
         console.log('delete', id)
@@ -66,7 +67,11 @@ const MYProductsCard = ({ product, setRefresh, refresh }) => {
                         <div className='flex gap-3'>
 
                             <div onClick={() => handleDeletProduct(_id)} className=" cursor-pointer border  rounded-lg pl-2 py-1 w-1/2  text-center bg-gradient-to-r from-primary to-secondary text-black ">Delete Product</div>
-                            <div onClick={() => handleAdvertiseProducts(_id)} className=" border cursor-pointer rounded-lg pl-2 py-1 w-1/2  text-center bg-gradient-to-r from-primary to-secondary text-black ">Advertise</div>
+                            {
+                                isAdvertised ? <div onClick={() => toast.error("Already advertised")} className=" border cursor-pointer rounded-lg pl-2 py-1 w-1/2  text-center bg-gradient-to-r from-primary to-secondary text-black ">Advertised</div> :
+                                    <div onClick={() => handleAdvertiseProducts(_id)} className=" border cursor-pointer rounded-lg pl-2 py-1 w-1/2  text-center bg-gradient-to-r from-primary to-secondary text-black ">Advertise</div>
+
+                            }
                         </div>
 
 

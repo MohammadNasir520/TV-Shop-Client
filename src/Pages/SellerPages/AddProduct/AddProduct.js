@@ -158,8 +158,8 @@ const AddProduct = () => {
 
                 </div>
             </div>
-            <div className='w-1/2 mx-auto '>
-                <input required type="submit" value="Add a Television" className='btn w-full  mx-auto ' />
+            <div className=' mx-auto flex justify-center '>
+                <button type="submit" className=' cursor-pointer border  w-32 rounded-lg pl-2 py-1  text-center bg-gradient-to-r from-primary to-secondary text-black  mx-auto' > Submit </button>
             </div>
 
         </form>

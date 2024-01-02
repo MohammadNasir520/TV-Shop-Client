@@ -3,8 +3,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { uploadImage } from '../../api/uploadImage';
-import { saveUer } from '../../api/usersApi';
+
 import { AuthContext } from '../../Context/AuthProvider';
+import { saveUerToDatabase } from '../../api/usersApi';
 
 const SignUp = () => {
     const { updateUser, setUser } = useContext(AuthContext)
@@ -27,9 +28,10 @@ const SignUp = () => {
 
         const role = event.target.userType.value;
         const name = event.target.name.value
-        const email = event.target.email.value
+        const email = event.target.email.value.tolowerCase()
         const password = event.target.password.value
         const image = event.target.image.files[0]
+        console.log(role, name, email, password, image)
 
 
 
@@ -42,7 +44,7 @@ const SignUp = () => {
                     createUserByEmailAndPss(email, password)
                         .then(result => {
                             const user = result.user;
-                            console.log(user);
+                            console.log("user", user);
                             seterror('')
                             toast(`you have created an account as a ${role} `)
                             const createdUser = {
@@ -55,7 +57,7 @@ const SignUp = () => {
                             updateUser(createdUser)
 
                             // save user to database
-                            saveUer(createdUser)
+                            saveUerToDatabase(createdUser)
                                 .then(data => {
                                     console.log(data)
                                     navigate(from, { replace: true })
@@ -83,75 +85,16 @@ const SignUp = () => {
 
     }
 
-    // const handleUpdateUser = profie => {
-    //     const name = {
-    //         displayName: profie.name
-
-    //     }
-    //     updateUser(name)
-    // }
 
     return (
         <>
-            {/* <form>
-                <div className="hero min-h-screen bg-base-200">
-                    <div className="hero-content flex-col lg:flex-row-reverse">
-
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <div className="card-body">
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Name</span>
-                                    </label>
-                                    <input required type="text" name='name' placeholder="Name" className="input input-bordered" />
-
-                                </div>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Email</span>
-                                    </label>
-                                    <input type="text" name='email' placeholder="email" className="input input-bordered" required />
-                                </div>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Password</span>
-                                    </label>
-                                    <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-
-                                </div>
-                                <div>
-                                    <label className="label">
-                                        <span className="label-text">Please select your account type</span>
-                                    </label>
-
-                                    <select defaultValue={'Buyer'} name='userType' className="select select-accent w-full max-w-xs">
-
-                                        <option disabled>Please Choose Your account type</option>
-                                        <option>Seller</option>
-                                        <option >Buyer</option>
-                                    </select>
-                                </div>
-                                <p className='text-red-600'>{error}</p>
-                                <div className="form-control mt-6">
-                                    <button className="btn btn-primary">SignUP</button>
-                                </div>
-                                <p>Already  have an account?<Link to='/login' className="label-text-alt text-sky-700 link link-hover ">Please  Login  Here</Link></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form> */}
 
 
-            <div className="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat" style={{ backgroundImage: `url('https://t4.ftcdn.net/jpg/04/44/90/69/240_F_444906906_EMcNCw95irM6vNDcbiwzd1fYshRpWw78.jpg') ` }}>
+
+            <div className="flex h-screen w-full items-center justify-center bg-gradient-to-r from-[#164e63] to-[#0c4a6e] bg-cover bg-no-repeat" >
                 <div className="rounded-xl bg-gray-800 bg-opacity-30 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
                     <div className="text-white">
-                        {/* <h1 className="mb-2 text-2xl text-center">SignUp</h1> */}
-                        {/* <div className="mb-8 flex flex-col items-center">
-                            <img src="https://www.logo.wine/a/logo/Instagram/Instagram-Glyph-Color-Logo.wine.svg" width="150" alt="" srcset="" />
-                            <h1 className="mb-2 text-2xl">TVShop</h1>
-                            <span className="text-gray-300">Enter Login Details</span>
-                        </div> */}
+
                         <form onSubmit={handleSignUp}>
                             <div className="mb-1 text-lg">
                                 <label htmlFor="" className="label">
@@ -212,7 +155,7 @@ const SignUp = () => {
 
                                 </select>
                             </div>
-                            <p>{error}</p>
+                            <p className='text-red-600'>{error}</p>
                             <div className="mt-4 flex justify-center text-lg text-black">
                                 <button
                                     type="submit"

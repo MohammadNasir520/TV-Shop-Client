@@ -6,6 +6,7 @@ export const AuthContext = createContext()
 const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
+
     const [user, setUser] = useState(null)
     console.log('users', user)
     //  setting loading for when data is loading

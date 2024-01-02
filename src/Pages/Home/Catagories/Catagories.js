@@ -32,7 +32,7 @@ const Catagories = () => {
         },
         {
             categoryName: 'LG TV',
-            img: 'https://i.pinimg.com/736x/f3/59/7e/f3597e9b57cf5a3427172d4334ed5937.jpg',
+            img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs8VoKcwho3iO2xfzWK1BAD3MlV8uDT0aJ2g&usqp=CAU',
             description: 'In This Category you will get All LG Tv for Buy'
 
         },
@@ -43,11 +43,11 @@ const Catagories = () => {
         },
     ]
     return (
-        <div className='w-full' >
-            <h1 className='text-center text-white text-3xl my-4'>Category</h1>
+        <div className=' p-5' >
+            <h1 className='text-center text-white text-3xl my-4'>Here Choose your Categories</h1>
             <div className='grid lg:grid-cols-3 gap-3 '>
                 {
-                    productsCategory.map((category, i) => <CategoryCard
+                    productsCategory?.map((category, i) => <CategoryCard
                         key={i}
                         handleSelectedCategory={handleSelectedCategory}
                         category={category}

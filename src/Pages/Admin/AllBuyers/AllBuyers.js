@@ -83,12 +83,16 @@ const AllBuyers = () => {
                             {
                                 allBuyer?.map((buyer, index) => <div
                                     key={index}
-                                    className="card  bg-gradient-to-r from-[#164e63] to-[#0c4a6e] text-slate-50 font-medium "
+                                    className="card   bg-gradient-to-r from-[#164e63] to-[#0c4a6e] text-slate-50 font-medium "
 
                                 >
+                                    <div className="flex flex-col items-center space-y-3  ">
+                                        <img className="object-cover w-16 h-16 mx-2  mt-5 rounded-full" src={buyer?.photoURL} alt="Pic" />
+
+                                    </div>
                                     <div className="card-body items-center text-white text-center">
-                                        <div className="badge ">{index + 1}</div>
-                                        <h2 className="card-title">Name: {buyer.name}</h2>
+
+                                        <h2 className="card-title"> {index + 1}. Name: {buyer?.name}</h2>
                                         <p>Email: {buyer.email}</p>
                                         <button onClick={() => handleDeletebuyerbyId(buyer)} className="btn btn-outline btn-error btn-sm">Delete Buyer</button>
 

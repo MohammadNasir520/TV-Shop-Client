@@ -13,8 +13,9 @@ const DashboardLayout = () => {
 
     const { user, loading, logout } = useContext(AuthContext)
     const [role, setRole] = useState('')
+    console.log("userRole:", role)
 
-
+    console.log(user.email)
     useEffect(() => {
         getRoleByEmail(user?.email)
             .then(data => {
@@ -69,7 +70,7 @@ const DashboardLayout = () => {
 
                         }
 
-                        <div className='flex justify-between px-4'>
+                        <div className='flex justify-between absolute bottom-1 gap-24   '>
                             <NavLink to={'/'}>
                                 <div className='font-bold w-10 text-center cursor-pointer  hover:bg-slate-300'>
                                     <svg className="w-6 h-6 mx-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >

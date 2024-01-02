@@ -26,53 +26,24 @@ const Navbar = () => {
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
         {
-
-
             <li >
-
                 <>
-
                     {
-
                         <Link to='/dashboard'>
                             Dashboard
 
                         </Link>}
-
-
-                    {/* {isBuyer &&
-                        <Link to='/buyerDashboard'>
-                            BuyerDashboard
-
-                        </Link>
-                    } */}
-                    {/* {isSeller &&
-                        <Link to='/sellerDashboard'>
-                            SellerDashboard
-
-                        </Link>
-                    } */}
-                    {/* {isAdmin &&
-                        <Link to='/AdminDashboard'>
-                            AdminDashboard
-
-                        </Link>
-                    } */}
                 </>
 
             </li>
         }
 
+
         {user?.uid ? <li><Link onClick={handleLogout} to='/signup'>SignOut</Link></li>
-
             : <>
-
                 <li><Link to='/signup'>Signup</Link></li>
                 <li><Link to='/login'>Login</Link></li>
             </>}
-
-
-
     </>
 
 
@@ -86,7 +57,7 @@ const Navbar = () => {
 
 
     return (
-        <div className=" navbar bg-gradient-to-r from-primary to-secondary  w-full">
+        <div className=" navbar bg-gradient-to-r from-primary to-secondary  w-full sticky top-0 z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

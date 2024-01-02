@@ -68,14 +68,16 @@ const Allseller = () => {
                                 </h1>
 
 
+                                <h1 className=' text-white text-center text-xl'>Total Seller: {allseller.length}</h1>
 
-                                <div className='grid lg:grid-cols-3 md:grid-cols-2  gap-4 p-4'>
+
+                                <div className='grid lg:grid-cols-3 md:grid-cols-2  gap-4 min-h-[200px]'>
                                     {
                                         allseller?.map((seller, index) => <div
                                             key={index}
                                             className="card text-white bg-gradient-to-r from-[#164e63] to-[#0c4a6e] text-slate-50 font-medium ">
-                                            <div className="flex flex-col items-center ">
-                                                <img className="object-cover w-16 h-16 mx-2 rounded-full" src={seller?.photoURL} alt="Pic" />
+                                            <div className="flex flex-col items-center space-y-3 ">
+                                                <img className="object-cover w-16 h-16 mx-2  mt-5 rounded-full" src={seller?.photoURL} alt="Pic" />
 
                                             </div>
                                             <div className="card-body items-center text-center my-0 py-3">
